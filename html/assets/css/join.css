@@ -1,0 +1,344 @@
+/* join__inner */
+.join__inner {
+    padding: 5% 0;
+}
+.join__inner h2 {
+    font-size: 30px;
+    text-align: center;
+    padding: 10% 0 0 0;
+}
+.join__inner .index {
+    text-align: center;
+}
+.join__inner .index ul {
+    position: relative;
+    display: inline-block;
+}
+.join__inner .index ul::before {
+    content: '';
+    background-color: var(--color__black);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -2px;
+    width: 100%;
+    height: 3px;
+    z-index: -1;
+}
+.join__inner .index li {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--color__black);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px; 
+    background-color: var(--bg__gray);
+}
+.join__inner .index li:nth-child(2) {
+    margin: 20px 30px;
+}
+.join__inner .index li.active {
+    background-color: var(--color__black);
+    color: var(--color__white);
+}
+.join__form {
+    padding: 10% 20%;
+}
+.join__form div {
+    margin-bottom: 3em;
+}
+.join__form .over {
+    display: flex;
+    flex-wrap: wrap;
+}
+.join__form .over label {
+    width: 100%;
+}
+.join__form .over input {
+    width: 70%;
+}
+.join__form .over .youCheck {
+    width: 28%;
+    height: 55px;
+    display: inline-block;
+    background-color: var(--color__black);
+    border-radius: 5px;
+    color: var(--color__white);
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 15px;
+    margin-left: 2%;
+}
+.join__form .over .msg {
+    width: 100%;
+}
+.join__form .msg {
+    padding: 7px 0;
+    color: var(--bg__red);
+}
+.join__form .msg::before {
+    content: '* ';
+    display: none;
+}
+.join__agree {
+    padding: 5% 20%;
+}
+.join__agree .agree {
+    height: 300px;
+    background-color: var(--bg__gray);
+    border: 1px solid var(--color__black);
+    border-radius: 5px;
+    overflow-y: scroll;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.join__agree .check {
+    display: flex;
+}
+.join__agree .check input {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+.join__agree .agree::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+.join__agree .agree::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: rgb(80, 80, 80); /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+.join__agree .agree::-webkit-scrollbar-track {
+    height: 10%;
+    background: rgb(158, 158, 158);  /*스크롤바 뒷 배경 색상*/
+    border-radius: 10px;
+}
+.join__complete {
+    text-align: center;
+}
+.join__complete .desc {
+    font-size: 30px;
+}
+.complete {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #173c57;
+    border: 10px solid white;
+    margin: 100px auto;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+  
+.planet {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, #70dec1 0%, #70dec1 30%, #7db9e8 100%);
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: planet-pulse 5s infinite linear;
+}
+
+.sub-planet {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #AEE69B 1%, #498DA4 50%, #0A404A 100%);
+    position: absolute;
+    top: 25%;
+    left: 70%;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    transform: scale(2);
+    z-index: 10;
+}
+.wave.wave-1 {
+    left: 60px;
+    bottom: 106px;
+    z-index: 11;
+}
+.wave.wave-2 {
+    left: -61px;
+    bottom: 78px;
+    z-index: 12;
+}
+.wave.wave-3 {
+    left: 100px;
+    bottom: 54px;
+    z-index: 13;
+}
+.wave.wave-4 {
+    left: 40px;
+    bottom: 29px;
+    z-index: 14;
+}
+.wave.wave-5 {
+    left: -71px;
+    bottom: 2px;
+    z-index: 15;
+}
+
+.orbit {
+    width: 1px;
+    height: 1px;
+    background: #fff;
+    border-radius: 50%;
+    positioN: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.02), 0 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.wave-1 {
+    animation: wave 2s 1s ease-out infinite;
+}
+
+.wave-2 {
+    animation: wave 2s 2s ease-out infinite;
+}
+
+.wave-3 {
+    animation: wave 2s 3s ease-out infinite;
+}
+
+.wave-4 {
+    animation: wave 2s 4s ease-out infinite;
+}
+
+.wave-5 {
+    animation: wave 2s 5s ease-out infinite;
+}
+
+.orbit-1 {
+    animation: orbit-1 10s linear infinite;
+}
+
+@keyframes orbit-1 {
+    from {
+        transform: rotate(0deg) translateX(115px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(115px) rotate(-360deg);
+    }
+}
+.orbit-2 {
+    animation: orbit-2 20s linear infinite;
+}
+
+@keyframes orbit-2 {
+    from {
+        transform: rotate(0deg) translateX(130px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(130px) rotate(-360deg);
+    }
+}
+.orbit-3 {
+    animation: orbit-3 30s linear infinite;
+}
+
+@keyframes orbit-3 {
+    from {
+        transform: rotate(0deg) translateX(145px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(145px) rotate(-360deg);
+    }
+}
+@keyframes wave {
+    0% {
+        transform: translate(0, 0) scale(2);
+    }
+    50% {
+        transform: translate(10px, 10px) scale(2);
+    }
+    100% {
+        transform: translate(0, 0) scale(2);
+    }
+}
+@keyframes anim {
+    from {
+        transform: rotate(0deg) translateX(50px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(50px) rotate(-360deg);
+}
+}
+.stars {
+    z-index: 50;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 1px;
+    height: 1px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.02), 0 0 0 10px rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    background-color: white;
+    animation: shooting 5s linear infinite;
+}
+.stars:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    right: 1px;
+    top: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
+}
+
+.star-2 {
+    top: 100px;
+    left: -100px;
+    animation: shooting 8s 1s linear infinite;
+}
+
+.star-3 {
+    top: 250px;
+    left: -250px;
+    animation: shooting 3s 2s linear infinite;
+}
+
+.star-4 {
+    top: 50px;
+    left: -50px;
+    animation: shooting 3s 2s linear infinite;
+}
+
+.star-5 {
+    top: 150px;
+    left: -150px;
+    animation: shooting 3s 2s linear infinite;
+}
+
+@keyframes shooting {
+    0% {    
+        transform: translate(-100px, -100px) rotate(45deg) scale(1);
+    }
+    100% {
+        transform: translate(calc(100% + 300px), calc(100% + 300px)) rotate(45deg) scale(1.5);
+    }
+}
+@keyframes planet-pulse {
+    0% {
+        box-shadow: 0 0 0 15px rgba(112, 191, 188, 0.1), 0 0 0 30px rgba(112, 191, 188, 0.1), 0 0 0 45px rgba(112, 191, 188, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 0 30px rgba(112, 191, 188, 0.1), 0 0 0 45px rgba(112, 191, 188, 0.1), 0 0 0 60px rgba(112, 191, 188, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 0 15px rgba(112, 191, 188, 0.1), 0 0 0 30px rgba(112, 191, 188, 0.1), 0 0 0 45px rgba(112, 191, 188, 0.1);
+    }
+}
