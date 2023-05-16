@@ -19,38 +19,6 @@
     <script defer src="assets/js/common.js"></script>
 </head>
 <body>
-    <div class="login__popup">
-        <div class="login__wrap">
-            <div class="login__title">
-                <div class="login__logo">
-                    <img src="../html/assets/img/logo.png" alt="로고">
-                </div>
-                <div class="login__desc">
-                    <h2>login</h2>
-                    <span class="desc">아이디 비밀번호를 입력해주세요!</span>
-                </div>
-            </div>
-            <div class="login__form">
-                <form action="../login/loginSave.php" name="login" method="post">
-                    <fieldset>
-                    <legend class="blind">아이디와 비밀번호 입력해주세요</legend>
-                        <input type="email" class="inputStyle" name="userEmail" placeholder="이메일을 입력해주세요!" required>
-                        <input type="password" class="inputStyle" name="userPass" placeholder="비밀번호를 입력해주세요!" required> 
-                        <div class="login__list">
-                            <ul>
-                                <li><a href="../login/idFind.php">아이디 찾기</a></li>
-                                <li><a href="../login/pwdFind.php">비밀번호 찾기</a></li>
-                                <li><a href="../join/conditions.php">회원가입</a></li>
-                            </ul>
-                        </div>
-                        <button type="submit" class="btnStyle">로그인</button>
-                        <button type="button" class="btnStyle close">닫기</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- //login__popup -->
     <div id="wrap">
         <?php include "../include/skip.php"; ?>
         <!-- //SKIP -->
@@ -175,38 +143,18 @@
         const slider = document.querySelectorAll(".slider");
         const sliderInner = document.querySelector(".slider__inner");
         const sliderImg2 = document.querySelector(".slider__img");
-        const btnMenu = document.querySelector(".btn__menu");
-        const btnClose = document.querySelector("#nav button");
 
         // 슬라이더
         let currentIndex = 0;
         let sliderCount = slider.length;
         let sliderW = slider[0].offsetWidth;
-        console.log(sliderW)
+
         sliderInner.style.transition = "all 0.6s";
         setInterval(() => {
             currentIndex = (currentIndex+1) % sliderCount;
             sliderInner.style.transform = "translateX(" + (-sliderW * currentIndex) + "px)";
         }, 3000);
-        // 사이드 메뉴
-        btnMenu.addEventListener("click", () => {
-            document.querySelector("#nav").style.transform = "translateX(0%)";
-        })
-        btnClose.addEventListener("click", () => {
-            document.querySelector("#nav").style.transform = "translateX(100%)";
-        })
-        // 로그인 버튼
-        document.querySelector(".icon__box .login").addEventListener("click", () => {
-            document.querySelector(".login__popup").style.display = "block";
-        });
-        document.querySelector(".close").addEventListener("click", () => {
-            document.querySelector(".login__popup").style.display = "none";
-        });
 
-        // 로그인 팝업창 닫기(안교남)
-        // document.querySelector(".a_close").addEventListener("click", () => {
-        //     document.querySelector(".login__popup").style.display = "none";
-        // });
     </script>
 </body>
 </html>

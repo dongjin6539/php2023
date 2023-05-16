@@ -57,8 +57,8 @@
                         </div>
                         <div>
                             <label for="blogContents">내용</label>
-                            <textarea name="blogContents" id="blogContents" rows="20" class="inputStyle" required></textarea>
-                            <!-- <div id="editor"></div> -->
+                            <!-- <textarea name="blogContents" id="blogContents" rows="20" class="inputStyle" required></textarea> -->
+                            <div id="editor"></div>
                         </div>
                         <div class="mt30">
                             <label for="blogFile">파일</label>
@@ -83,7 +83,7 @@
 			  el: document.querySelector('#editor'),
 			  height: '1000px',
 			  initialEditType: 'markdown',
-			//   previewStyle: 'vertical'
+			  previewStyle: 'vertical'
 			});
 		
 		seeHtml = function(){

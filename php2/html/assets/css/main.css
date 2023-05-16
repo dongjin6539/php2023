@@ -53,18 +53,19 @@
     width: 40px;
     height: 40px;
     margin: 0 20px;
+    cursor: pointer;
 }
 .icon__box li a {
     display: inline-block;
 }
-.icon__box button {
+/* .icon__box button {
     background-color: #292A2D;
     width: 40px;
     height: 40px;
     margin: 0;
     padding: 0;
     cursor: pointer;
-}
+} */
 
 /* nav */
 #nav {
@@ -95,16 +96,14 @@
     color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
 }
-#nav .nav__wrap ul li {
-    padding: 30px 0;
-}
 #nav .nav__wrap ul li a {
     color: #fff;
 }
 #nav .nav__wrap > img {
-    margin:24px 0;
+    margin: 24px auto;
 }
 #nav .nav__wrap .profile {
+    display: block;
     width: 150px;
     height: 150px;
     background-color: #fff;
@@ -131,12 +130,14 @@
     color: #fff;
     font-size: 16px;
     font-weight: 700;
+    text-align: center;
 }
 #nav .nav__wrap ul li a:hover {
     color: #868686;
 }
-
-
+#nav .nav__wrap .login {
+    text-align: center;
+}
 
 /* slider */
 .slider__img {
@@ -192,8 +193,8 @@
     height: 600px;
     position: absolute;
     left: 50%;
-    top: 85%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    transform: translate(-50%, -15%);
 }
 .contents__inner .content1 {
     background-image: url(../img/content_01.png);

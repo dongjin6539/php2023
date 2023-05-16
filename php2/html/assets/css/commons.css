@@ -45,6 +45,7 @@ body.windows {
     margin: 0 auto;
 }
 /* 간격설정 */
+.mt5 {margin-top: 5px !important;}
 .mt10 {margin-top: 10px !important;}
 .mt20 {margin-top: 20px !important;}
 .mt30 {margin-top: 30px !important;}
@@ -53,6 +54,31 @@ body.windows {
 .mt60 {margin-top: 60px !important;}
 .mt70 {margin-top: 70px !important;}
 
+.ml5 {margin-left: 5px !important;}
+.ml10 {margin-left: 10px !important;}
+.ml20 {margin-left: 20px !important;}
+.ml30 {margin-left: 30px !important;}
+.ml40 {margin-left: 40px !important;}
+.ml50 {margin-left: 50px !important;}
+.ml60 {margin-left: 60px !important;}
+.ml70 {margin-left: 70px !important;}
+.ml80 {margin-left: 80px !important;}
+.ml90 {margin-left: 90px !important;}
+.ml100 {margin-left: 100px !important;}
+
+.mr5 {margin-right: 5px !important;}
+.mr10 {margin-right: 10px !important;}
+.mr20 {margin-right: 20px !important;}
+.mr30 {margin-right: 30px !important;}
+.mr40 {margin-right: 40px !important;}
+.mr50 {margin-right: 50px !important;}
+.mr60 {margin-right: 60px !important;}
+.mr70 {margin-right: 70px !important;}
+.mr80 {margin-right: 80px !important;}
+.mr90 {margin-right: 90px !important;}
+.mr100 {margin-right: 100px !important;}
+
+.mb5 {margin-bottom: 5px !important;}
 .mb10 {margin-bottom: 10px !important;}
 .mb20 {margin-bottom: 20px !important;}
 .mb30 {margin-bottom: 30px !important;}
@@ -133,12 +159,14 @@ body.windows {
     display: block;
     background-color: #83c5f5;
     color: #fff;
+    width: 50%;
     margin: 0 auto;  
     border-radius: 20px;
     cursor: pointer;
     width: 110px;
 }
 .btnStyle2 a {
+    width: 100%;
     text-align: center;
     display: inline-block;
     padding-top: 100px;
@@ -164,14 +192,16 @@ body.windows {
     padding: 10px 0;
 }
 .btnStyle5 {
-    display: block;
+    display: inline-block;
+    width: 100%;
     background-color: #fff;
     color: #000;
     margin: 0 auto;  
     border-radius: 20px;
     cursor: pointer;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding: 5px 0;
+    text-align: center;
 }
 
 /* input Style */
