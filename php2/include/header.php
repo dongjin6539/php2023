@@ -32,10 +32,16 @@
             <a href="#c" class="login btnStyle5">로그인</a>
         <?php } ?>
         <ul>
+        <?php if(isset($_SESSION['memberID'])){?>
             <li><a href="intro.html">헬드백 소개</a></li>
             <li><a href="mainSection.html">운동 종류</a></li>
             <li><a href="../board/board.php">커뮤니티</a></li>
-            <li><a href="mypage.html">마이페이지</a></li>
+            <li><a href="../mypage/mypage.php">마이페이지</a></li>
+        <?php } else{?>
+            <li><a href="intro.html">헬드백 소개</a></li>
+            <li><a href="mainSection.html">운동 종류</a></li>
+            <li><a href="../board/board.php">커뮤니티</a></li>
+        <?php } ?>
         </ul>
     </div>
 </nav>

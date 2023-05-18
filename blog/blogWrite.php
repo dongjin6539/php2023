@@ -18,8 +18,8 @@
     <?php include "../include/head.php" ?>
     <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
     <style>
-        :not(.auto-height)>.toastui-editor-defaultUI>.toastui-editor-main {
-            background-color: #fff;
+        .ck-editor__editable { 
+            height: 600px;
         }
     </style>
 
@@ -45,10 +45,13 @@
                         <div>
                             <label for="blogCategory">카테고리</label>
                             <select name="blogCategory" id="blogCategory">
+                                <option value="none">none</option>
                                 <option value="javascript">javascript</option>
-                                <option value="jQuery">jQuery</option>
+                                <option value="jquery">jquery</option>
+                                <option value="react">react</option>
                                 <option value="html">html</option>
                                 <option value="css">css</option>
+                                <option value="sdofjisa">sdofjisa</option>
                             </select>
                         </div>
                         <div>
@@ -57,8 +60,9 @@
                         </div>
                         <div>
                             <label for="blogContents">내용</label>
-                            <!-- <textarea name="blogContents" id="blogContents" rows="20" class="inputStyle" required></textarea> -->
-                            <div id="editor"></div>
+                            <textarea name="blogContents" id="blogContents" rows="20" class="inputStyle" required></textarea>
+                            <!-- <div id="editor"></div> -->
+                            <!-- <textarea name="blogContents" id="editor" placeholder="내용을 입력해주세요."></textarea> -->
                         </div>
                         <div class="mt30">
                             <label for="blogFile">파일</label>
@@ -75,7 +79,14 @@
     <?php include "../include/footer.php" ?>
     <!-- //footer -->
 
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
+    <script>
+        ClassicEditor.create( document.querySelector( '#editor' ), {
+            language: "ko"
+        } );
+    </script>
+    <!-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script>
 		const Editor = toastui.Editor;
 	
@@ -92,6 +103,6 @@
 		seeMd = function(){
 			alert(editor.getMarkdown());
 		}
-	</script>
+	</script> -->
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
   include "../connect/connect.php";
   include "../connect/session.php";
+  include "../connect/sessionCheck.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,19 +10,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인 페이지</title>
+    <title>COMMUNITY</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../html/assets/css/style.css">
     <!-- SCRIPT -->
-    <script defer src="assets/js/common.js"></script>
-    <style>
-        .board__view p a {
-            color: #fff;
-        }
-        .board__contents a {
-            color: #fff;
-        }
-    </style>
+    <script defer src="../html/assets/js/common.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -39,7 +32,7 @@
         <!-- banner -->
         <div class="board__box">
             <div class="board__view">
-                <h2>게시글</h2>
+                <h2>COMMUNITY</h2>
                 <div class="board__main">
                     <!-- <div class="board__title"><p>벤치 프레스하는 방법</p></div>
                     <div class="board__desc">
@@ -97,14 +90,14 @@
             // 로그인 여부 확인
             if(isset($_SESSION['memberID'])){
                 if($userID['memberID'] == $_SESSION['memberID']){
-                    echo "<a href='boardModify.php?uBoardID=".$_GET['uBoardID']."' class='btnStyle4 mr5'>수정하기</a>";
-                    echo "<a href='boardRemove.php?uBoardID=".$_GET['uBoardID']."' class='btnStyle4' onclick='return confirm(\"삭제하시겠습니까?\")'>삭제하기</a>";
+                    echo "<a href='mypageBoardModify.php?uBoardID=".$_GET['uBoardID']."' class='btnStyle4 mr5'>수정하기</a>";
+                    echo "<a href='mypageBoardRemove.php?uBoardID=".$_GET['uBoardID']."' class='btnStyle4' onclick='return confirm(\"삭제하시겠습니까?\")'>삭제하기</a>";
                 }
             }
         }
     }
 ?>
-                    <a href="board.php" class="btnStyle4">목록보기</a>
+                    <a href="mypageBoard.php" class="btnStyle4">목록보기</a>
                 </div>
             </div>
         </div> 
