@@ -2,9 +2,9 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    echo "<pre>";
-    var_dump($_SESSION);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($_SESSION);
+    // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
+    <title>블로그</title>
 
     <?php include "../include/head.php" ?>
 
@@ -69,7 +69,7 @@
 <?php foreach($result as $blog){ ?>
     <div class="card">
         <figure class="card__img">
-        <a href="blogView.php?blogID=<?= $blog['blogID']?>">
+                <a href="blogView.php?blogID=<?= $blog['blogID']?>">
                 <img src="../assets/blog/<?= $blog['blogImgFile'] ?>" alt="<?= $blog['blogTitle'] ?>">
             </a>
         </figure>
@@ -92,7 +92,7 @@
 
                         <?php include "../include/blogCate.php" ?>
 
-                        <?php include "../include/blogLatest.php" ?>
+                        <?php include "../include/blogNew.php" ?>
 
                         <?php include "../include/blogPopular.php" ?>
 
