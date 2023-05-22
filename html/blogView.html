@@ -183,14 +183,19 @@
                 </div>
             </div>
 
-            <div class="comment__write mt30">
-                <label for="commentPassword" class="blind">비밀번호</label>
-                <input type="password" id="commentPassword" name="commentPassword" placeholder="비밀번호를 입력하세요!">
-                <label for="commentName" class="blind">이름</label>
-                <input type="text" id="commentName" name="commentName" placeholder="이름">                
-                <label for="commentWrite" class="blind">댓글쓰기</label>
-                <textarea id="commentWrite" name="commentWrite" rows="4" placeholder="댓글을 작성해주세요!"></textarea>
-                <button type="submit" class="btnStyle3 mt10">댓글쓰기</button>
+            <div class="comment__write">
+                <form action="#">
+                    <fieldset>
+                        <legend class="blind">댓글 쓰기</legend>
+                        <label for="commentPassword" class="blind">비밀번호</label>
+                        <input type="password" id="commentPassword" name="commentPassword" placeholder="비밀번호" required>
+                        <label for="commentName" class="blind">이름</label>
+                        <input type="text" id="commentName" name="commentName" placeholder="이름" required>                
+                        <label for="commentWrite" class="blind">댓글쓰기</label>
+                        <textarea id="commentWrite" name="commentWrite" rows="4" placeholder="댓글을 작성해주세요!" maxlength="255" required></textarea>
+                        <button type="submit" id="commentWrite" class="btnStyle3 mt10">댓글쓰기</button>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <!-- //blog__comment -->

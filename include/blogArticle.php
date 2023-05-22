@@ -5,7 +5,7 @@
         $category = $_GET['category'];
     }
 
-    $categorySql = "SELECT * FROM blog WHERE blogDelete = 0 AND blogCategory = '$category' ORDER BY blogID DESC";
+    $categorySql = "SELECT * FROM blog WHERE blogDelete = 0 AND blogCategory = '$category' AND blogID != '$excludeBlogID' ORDER BY blogID DESC";
     $categoryResult = $connect -> query($categorySql);
     $categoryInfo = $categoryResult -> fetch_array(MYSQLI_ASSOC);
     $categoryCount = $categoryResult -> num_rows;
