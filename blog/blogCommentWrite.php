@@ -5,7 +5,7 @@
     $memberID = $_POST['memberID'];
     $commentName = $_POST['name'];
     $commentPass = $_POST['pass'];
-    $commentWrite = $_POST['mag'];
+    $commentWrite = $_POST['msg'];
     $regTime = time();
 
     $sql = "INSERT INTO blogComment(memberID, blogID, commentName, commentPass, commentMsg, commentDelete, regTime) VALUES('$memberID', '$blogID', '$commentName', '$commentPass', '$commentWrite', '0', '$regTime')";

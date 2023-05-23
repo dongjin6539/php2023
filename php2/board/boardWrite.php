@@ -14,8 +14,14 @@
     <link rel="stylesheet" href="../html/assets/css/style.css">
     <!-- Toast UI Editor -->
     <style>
-        .ck-editor__editable { 
+        .ck.ck-editor{
+            width: 100%;
+        }
+        .ck-editor__editable {
             height: 600px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-all;
         }
         .ck.ck-button.ck-off {
             color: #fff;
@@ -78,18 +84,6 @@
             <form action="boardWriteSave.php" name="boardWriteSave" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend class="blind">게시글 작성하기</legend>
-                    <div>
-                        <label for="boardCategory">카테고리</label>
-                        <select name="boardCategory" id="boardCategory">
-                            <option value="community">community</option>    
-                            <option value="chest">가슴(Chest)</option>
-                            <option value="back">등(Back)</option>
-                            <option value="shoulder">어께(Shoulder)</option>
-                            <option value="leg">하체(Leg)</option>
-                            <option value="arm">팔(Arm)</option>
-                            <option value="abs">복근(Abs)</option>
-                        </select>
-                    </div>
                     <div>
                         <label for="uBoardTitle">제목</label>
                         <input type="text" id="uBoardTitle" name="uBoardTitle" class="inputStyle3">

@@ -1,9 +1,9 @@
 <?php
-//     include "../connect/connect.php";
-//     include "../connect/session.php";
-//     include "../connect/sessionCheck.php";
+    include "../connect/connect.php";
+    include "../connect/session.php";
+    include "../connect/sessionCheck.php";
 
-//   $userName = $_SESSION['userName'];
+    $userName = $_SESSION['userName'];
 
 // //   if (is_null($userName)) {
 // //     header( 'Location: ../login/login.php' );
@@ -11,6 +11,12 @@
 
 //   echo $userName;
 //   echo $userPassword, $newPassword, $newPasswordConfirm;
+    if(isset($_SESSION['memberID'])){
+    $memberID = $_SESSION['memberID'];
+    $sql = "SELECT * FROM userMembers WHERE memberID = {$memberID}";
+    $result = $connect -> query($sql);
+    $info = $result -> fetch_array(MYSQLI_ASSOC);
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +49,7 @@
             <h2>비밀번호 변경</h2>
             <div class="section__box">
                 <div class="section__left">
-                    <img src="../html/assets/img/my__img1.png" alt="마이페이지 이미지1" />
+                    <img src="../assets/profile/<?= $info['userImgSrc']?>" alt="마이페이지 이미지1" />
                     <div class="profile__box">
                         <!-- <a href="#" class="mymo__profile">변경하기</a> -->
                     </div>
@@ -55,7 +61,7 @@
                         <div class="box">
                             <label for="userPassword">현재 비밀번호 : </label>
                             <input type="password" id="userPassword" name="userPassword" placeholder="현재 비밀번호를 입력해주세요!">
-                            <p class="nowpass"></p>
+                            <p id="nowpass"></p>
                         </div>
                         <div class="box">
                             <label for="newPassword">새 비밀번호 : </label>
@@ -94,9 +100,6 @@
             let getuserPassEng = getuserPass.search(/[a-z]/ig);
             let getuserPassSpe = getuserPass.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
-            console.log("asdasd");
-            console.log(getuserPass);
-
             if(getuserPass.length < 8 || getuserPass.length > 20){
                 $("#newnowpass").text("* 8자리 ~ 20자리 이내로 입력해주세요~");
                 return false;
@@ -121,7 +124,6 @@
                 return false;
             }
         } 
-        mypagePassword();
     </script>
 </body>
 </html>

@@ -111,7 +111,7 @@
             }else {
                 $.ajax({
                     type : "POST",
-                    url : "joinCheck.php",
+                    url : "joinend.php",
                     data : {"userEmail" : userEmail, "type" : "isEmailCheck"},
                     dataType : "json",
 
@@ -156,7 +156,7 @@
             } else {
                 $.ajax({
                     type : "POST",
-                    url : "joinCheck.php",
+                    url : "joinend.php",
                     data : {"userNickname" : userNickname, "type" : "isNickCheck"},
                     dataType : "json",
 

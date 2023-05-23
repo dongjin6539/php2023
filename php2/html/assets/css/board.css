@@ -47,6 +47,7 @@ main {
 .board__search button {
     margin-right: 10px;
 }
+
 .board__table {
     margin-top: 10px;
     margin-bottom: 60px;
@@ -114,6 +115,11 @@ main {
     border-top: 3px solid var(--color__white);
     border-bottom: 3px solid var(--color__white);
     margin-bottom: 50px;
+}
+.board__main img {
+    width: 50%;
+    height: 50vh;
+    padding: 20px;
 }
 .board__title {
     border-bottom: 1px solid var(--color__white);
