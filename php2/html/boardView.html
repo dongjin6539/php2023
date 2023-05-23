@@ -78,8 +78,74 @@
                     <a href="#" class="btnStyle4">삭제하기</a>
                     <a href="board.html" class="btnStyle4">목록보기</a>
                 </div>
+
+                <div class="comment" id="boardComment">
+                    <div class="comment__view" id="comment">
+                        <div class="avatar">
+                            <img src="../assets/img/logo.png" alt="">
+                        </div>
+                        <div class="info">
+                            <span class="nickname">신동진</span>
+                            <span class="date">2023.05.23</span>
+                            <p class="msg">신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진</p>
+                            <div class="del">
+                                <a href="#" class="comment__del__del">삭제</a>
+                                <a href="#" class="comment__del__mod">수정</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment__view" id="comment">
+                        <div class="avatar">
+                            <img src="../assets/img/logo.png" alt="">
+                        </div>
+                        <div class="info">
+                            <span class="nickname">신동진</span>
+                            <span class="date">2023.05.23</span>
+                            <p class="msg">신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진신동진</p>
+                            <div class="del">
+                                <a href="#" class="comment__del__del">삭제</a>
+                                <a href="#" class="comment__del__mod">수정</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 삭제 -->
+                    <div class="comment__delete">
+                        <label for="commentDeletePass" class="blind">비밀번호</label>
+                        <input type="password" id="commentDeletePass" name="commentDeletePass" placeholder="비밀번호">
+                        <button id="commentDeleteCancel">취소</button>
+                        <button id="commentDeleteButton">삭제</button>
+                    </div>
+                    <!-- //삭제 -->
+                    <!-- 수정 -->
+                    <div class="comment__modify">
+                        <label for="commentModifyMsg" class="blind">수정 내용</label>
+                        <textarea name="commentModifyMsg" id="commentModifyMsg" cols rows="4" placeholder="수정할 내용을 적어주세요!" maxlength="255" required></textarea>
+                        <label for="commentModifyPass" class="blind">비밀번호</label>
+                        <input type="password" id="commentModifyPass" name="commentModifyPass" placeholder="비밀번호" required>
+                        <button id="commentModifyCancel">취소</button>
+                        <button id="commentModifyButton">수정</button>
+                    </div>
+                    <!-- //수정 -->
+                    <div class="comment__write">
+                        <form action="#">
+                            <fieldset>
+                                <legend class="blind">댓글 쓰기</legend>
+                                <label for="commentPass" class="blind">비밀번호</label>
+                                <input type="password" id="commentPass" name="commentPass" placeholder="비밀번호" required>
+                                <label for="commentName" class="blind">이름</label>
+                                <input type="text" id="commentName" name="commentName" placeholder="이름" required>
+                                <label for="commentWrite" class="blind">댓글쓰기</label>
+                                <textarea id="commentWrite" name="commentWrite" rows="4" placeholder="댓글을 써주세요!" maxlength="255" required></textarea>
+                                <button type="button" id="commentWriteBtn" class="btnStyle4 mt10">댓글쓰기</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <!-- //blog__comment -->
             </div>
         </div> 
+
+        
 
         <footer id="footer">
             <div class="logo">

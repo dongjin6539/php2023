@@ -8,7 +8,7 @@
 
     echo $userID;
     // userMembers
-    $sql = "DELETE FROM userMembers WHERE memberID = '$userID'";
+    $sql = "DELETE FROM userMembers WHERE userPass = '$WithdrawalPass'";
 
     if ($connect -> query($sql) == TRUE) {
         include "../login/logout.php";

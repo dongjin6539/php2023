@@ -1,5 +1,6 @@
 <?php
   include "../connect/connect.php";
+  include "../connect/session.php";
 //   echo $_SESSION['adminMemberID'], $_SESSION['adminEmail'], $_SESSION['adminName'];
   // echo "<pre>";
   // var_dump($_SESSION);

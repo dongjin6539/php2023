@@ -43,13 +43,13 @@
         <?php } ?>
         <ul>
         <?php if(isset($_SESSION['memberID'])){?>
-            <li><a href="../main/intro.html">헬드백 소개</a></li>
+            <li><a href="../main/intro.php">헬드백 소개</a></li>
             <li><a href="../main/mainSection.php">운동 종류</a></li>
             <li><a href="../blog/blog.php">운동 방법 공유</a></li>
             <li><a href="../board/board.php">커뮤니티</a></li>
             <li><a href="../mypage/mypage.php">마이페이지</a></li>
         <?php } else{?>
-            <li><a href="../main/intro.html">헬드백 소개</a></li>
+            <li><a href="../main/intro.php">헬드백 소개</a></li>
             <li><a href="../main/mainSection.php">운동 종류</a></li>
             <li><a href="../blog/blog.php">운동 방법 공유</a></li>
             <li><a href="../board/board.php">커뮤니티</a></li>
@@ -79,8 +79,8 @@
                     <input type="password" class="inputStyle" name="userPass" placeholder="비밀번호를 입력해주세요!">
                     <div class="login__list">
                         <ul>
-                            <li><a href="../login/idFind.php">아이디 찾기</a></li>
-                            <li><a href="../login/pwdFind.php">비밀번호 찾기</a></li>
+                            <li><a href="#c" class="idFind">아이디 찾기</a></li>
+                            <li><a href="#c" class="pwdFind">비밀번호 찾기</a></li>
                             <li><a href="#c" class="join">회원가입</a></li>
                         </ul>
                     </div>
@@ -190,7 +190,7 @@
             </div>
         </div>
         <div class="login__form">
-            <form action="login__popup4" name="joinClear" method="post" onsubmit="return joinChecks()">
+            <form action="login__popup4" name="login__popup4" method="post" onsubmit="return joinChecks()">
                 <fieldset>
                     <legend class="blind">회원가입</legend>
                     <div class="form1">
@@ -261,6 +261,159 @@
 </div>
 <!-- //회원가입 완료 -->
 
+<!-- 아이디 찾기 -->
+<div class="login__popup5">
+    <div class="login__wrap">
+        <div class="login__title">
+            <div class="login__logo">
+                <img src="../assets/img/logo.png" alt="로고">
+            </div>            
+            <div class="login__desc">
+                <h2>아이디 찾기</h2>
+                <span class="desc">등록된 이름과 핸드폰 번호를 입력해주세요!</span>
+            </div>
+        </div>
+        <div class="login__form">
+            <form action="idFindCompelete.php" name="idFindCompelete" method="post" onsubmit="return nameChecks()">
+                <div>
+                    <label for="userNameIdFind" class="blind">이름</label>
+                    <input type="text" id="userNameIdFind" name="userNameIdFind" class="inputStyle" placeholder="이름을 입력해주세요!" required>
+                </div>
+                <div>
+                    <label for="userPhoneIdFind" class="blind">핸드폰 번호</label>
+                    <input type="text" id="userPhoneIdFind" name="userPhoneIdFind" class="inputStyle" placeholder="핸드폰 번호를 입력해주세요!" required>
+                </div>
+                <div class="login__list">
+                    <ul>
+                        <li><a href="#c" class="login">로그인</a></li>
+                        <li><a href="#c" class="pwdFind">비밀번호 찾기</a></li>
+                        <li><a href="#c" class="join">회원가입</a></li>
+                    </ul>
+                </div>    
+                <div>
+                    <button class="btnStyle" id="findIdForm">아이디 찾기</button>
+                    <button type="button" class="btnStyle idFind__close">닫기</button>
+                </div>
+            </form>            
+        </div>  
+    </div>
+</div>
+<!-- //아이디 찾기 -->
+
+<!-- 아이디 찾기 완료 -->
+<div class="login__popup6">
+    <div class='login__wrap'>
+        <!-- <div class='login__title'>
+            <div class='login__logo'>
+                <img src='../html/assets/img/logo.png' alt='로고'>
+            </div>
+            <div class='login__desc'>
+                <h2>아이디 확인</h2>
+                <span class='desc'>아이디 찾기가 완료되었습니다.</span>
+            </div>
+        </div>
+        <div class='text'>
+            회원님의 아이디는<br>
+            <span>".$row[2]."</span>
+        </div>
+        <div>
+            <button class='btnStyle login'>로그인</button>
+            <button class='btnStyle pwdFind'>비밀번호 찾기</button>
+        </div>
+        <div class='login__desc'>
+                <h2>아이디 확인</h2>
+                <span class='desc'>회원님의 등록된 아이디가 없습니다.</span>
+            </div>
+        </div>
+        <div class='text mb30'>
+            회원가입을 하시면 사용하실 수 있습니다.
+        </div>
+        <div>
+            <button class='btnStyle join'>회원가입</button>
+            <button class='btnStyle main'>메인</button>
+        </div> -->
+    </div>
+</div>
+<!-- //아이디 찾기 완료 -->
+
+<!-- 비밀번호 찾기 -->
+<div class="login__popup7">
+    <div class="login__wrap">
+        <div class="login__title">
+            <div class="login__logo">
+                <img src="../html/assets/img/logo.png" alt="로고">
+            </div>            
+            <div class="login__desc">
+                <h2>비밀번호 찾기</h2>
+                <span class="desc">등록된 회원정보를 입력해주세요!</span>
+            </div>
+        </div>
+        <div class="login__form">
+            <form action="pwdFindCompelete.php" name="pwdFindCompelete" method="post" onsubmit="return pwdChecks()">
+                <div>
+                    <label for="userEmailPwdFind" class="blind">이메일</label>
+                    <input type="email" id="userEmailPwdFind" name="userEmailPwdFind" class="inputStyle" placeholder="이메일을 입력해주세요!" required>
+                </div>
+                <div>
+                    <label for="userNamePwdFind" class="blind">이름</label>
+                    <input type="text" id="userNamePwdFind" name="userNamePwdFind" class="inputStyle" placeholder="이름을 입력해주세요!" required>
+                </div>
+                <div>
+                    <label for="userPhonePwdFind" class="blind">핸드폰 번호</label>
+                    <input type="text" id="userPhonePwdFind" name="userPhonePwdFind" class="inputStyle" placeholder="핸드폰 번호를 입력해주세요!" required>
+                </div>
+                <div class="login__list">
+                    <ul>
+                        <li><a href="#c" class="login">로그인</a></li>
+                        <li><a href="#c" class="idFind">아이디 찾기</a></li>
+                        <li><a href="#c" class="join">회원가입</a></li>
+                    </ul>
+                </div>                       
+                <div>
+                    <button class="btnStyle" id="findPwdForm">비밀번호 찾기</button>
+                    <button type="button" class="btnStyle pwdFind__close">닫기</button>
+                </div>     
+            </form>
+        </div>
+    </div>
+</div>
+<!-- // 비밀번호 찾기 -->
+
+<!-- 비밀번호 찾기 완료 -->
+<div class="login__popup8">
+    <div class="login__wrap">
+        <!-- <div class="login__title">
+            <div class="login__logo">
+                <img src="../html/assets/img/logo.png" alt="로고">
+            </div>  
+        <div class='login__desc'>
+                <h2>비밀번호 확인</h2>
+                <span class='desc'>비밀번호 찾기가 완료되었습니다.</span>
+            </div>
+        </div>
+        <div class='text'>
+            회원님의 비밀번호는<br>
+            <span>".$row[3]."</span>
+        </div>                
+        <div>
+            <button class='btnStyle login'>로그인</button>
+        </div>
+        <div class='login__desc'>
+                <h2>비밀번호 확인</h2>
+                <span class='desc'>회원님의 등록된 정보가 없습니다.</span>
+            </div>
+        </div>
+        <div class='text mb30'>
+            회원가입을 하시면 사용하실 수 있습니다.
+        </div>
+        <div>
+            <button class='btnStyle join'>회원가입</button>
+            <button class='btnStyle main'>메인</button>
+        </div> -->
+    </div>
+</div>
+<!-- // 비밀번호 찾기 완료 -->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     const btnMenu = document.querySelector(".btn__menu");
@@ -290,11 +443,64 @@
     document.querySelector(".close2").addEventListener("click", () => {
         document.querySelector(".login__popup2").style.display = "none";
     });
+
     // 회원가입
     document.querySelector(".login__wrap .join2").addEventListener("click", () => {
         document.querySelector(".login__popup3").style.display = "none";
         document.querySelector(".login__popup4").style.display = "block";
     });
+
+    // 아이디 찾기
+    document.querySelector(".login__list .idFind").addEventListener("click", () => {
+        document.querySelector(".login__popup5").style.display = "block";
+    });
+    document.querySelector(".login__popup5 .idFind__close").addEventListener("click", () => {
+        document.querySelector(".login__popup5").style.display = "none";
+    });
+    document.querySelector(".login__popup5 .login__list .login").addEventListener("click", () => {
+        document.querySelector(".login__popup5").style.display = "none";
+        document.querySelector(".login__popup").style.display = "block";
+    });
+    document.querySelector(".login__popup5 .login__list .pwdFind").addEventListener("click", () => {
+        document.querySelector(".login__popup5").style.display = "none";
+    });
+    document.querySelector(".login__popup5 .login__list .join").addEventListener("click", () => {
+        document.querySelector(".login__popup5").style.display = "none";
+        document.querySelector(".login__popup2").style.display = "block";
+    });
+    document.querySelector(".login__popup5 .idFind__close").addEventListener("click", () => {
+        document.querySelector(".login__popup5").style.display = "none";
+        document.querySelector(".login__popup").style.display = "block";
+    });
+
+    // 아이디 찾기 완료
+    document.querySelector(".login__popup5 .login2").addEventListener("click", () => {
+        document.querySelector(".login__popup5").style.display = "none";
+        document.querySelector(".login__popup").style.display = "block";
+    });
+
+    // 비밀번호 찾기
+    document.querySelector(".login__list .pwdFind").addEventListener("click", () => {
+        document.querySelector(".login__popup7").style.display = "block";
+    });
+    document.querySelector(".login__popup7 .pwdFind__close").addEventListener("click", () => {
+        document.querySelector(".login__popup7").style.display = "none";
+    });
+    document.querySelector(".login__popup7 .login").addEventListener("click", () => {
+        document.querySelector(".login__popup7").style.display = "none";
+        document.querySelector(".login__popup").style.display = "block";
+    });
+    document.querySelector(".login__popup7 .idFind").addEventListener("click", () => {
+        document.querySelector(".login__popup7").style.display = "none";
+        document.querySelector(".login__popup5").style.display = "block";
+    });
+    document.querySelector(".login__popup7 .join").addEventListener("click", () => {
+        document.querySelector(".login__popup7").style.display = "none";
+        document.querySelector(".login__popup2").style.display = "block";
+    });
+
+
+    
 
 </script>
 
@@ -496,49 +702,179 @@
 </script>
 
 <script>
-  // Ajax 요청 함수
-  function registerUser() {
-    // 회원가입 폼 데이터 가져오기
-    var formData = {
-      userEmail: document.getElementById('userEmail').value,
-      userName: document.getElementById('userName').value,
-      userNickname: document.getElementById('userNickname').value,
-      userPass: document.getElementById('userPass').value,
-      userPhone: document.getElementById('userPhone').value,
-      userGender: document.querySelector('input[name="userGender"]:checked').value
-    };
+    // 회원가입 완료
+    // Ajax 요청 함수
+    function registerUser() {
+        // 회원가입 폼 데이터 가져오기
+        var formData = {
+            userEmail: $('#userEmail').val(),
+            userName: $('#userName').val(),
+            userNickname: $('#userNickname').val(),
+            userPass: $('#userPass').val(),
+            userPhone: $('#userPhone').val(),
+            userGender: $('input[name="userGender"]:checked').val()
+        };
 
-    // console.log(formData.userEmail, formData.userName, formData.userNickname, formData.userPass, formData.userPhone, formData.userGender);
+        // Ajax 요청 설정
+        $.ajax({
+            url: '../join/register.php',
+            type: 'POST',
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function(response) {
+            if (response.success) {
+                // 회원가입 성공
+                $('.login__end .desc').text('회원가입이 완료되었습니다. 감사합니다.');
+            } else {
+                // 회원가입 실패
+                $('.login__end .desc').text('회원 정보가 잘못 입력되었습니다. 다시 입력해주세요.');
+            }
+            },
+            error: function() {
+            // 요청 실패
+                $('.login__end .desc').text('오류가 발생했습니다. 다시 시도해주세요.');
+            }
+        });
+    }
 
-    // Ajax 요청 설정
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'register.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    // 회원가입 폼 제출 시 Ajax 요청 수행
+    $('#join__confirm').click(function(event) {
+        event.preventDefault();
+        registerUser();
+    });
+</script>
 
-    // 요청 완료 시 처리
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        var response = JSON.parse(xhr.responseText);
-        if (response.success) {
-          회원가입 성공
-          document.querySelector('.login__end .desc').textContent = '회원가입이 완료되었습니다. 감사합니다.';
-        } else {
-          회원가입 실패
-          document.querySelector('.login__end .desc').textContent = '회원 정보가 잘못 입력되었습니다. 다시 입력해주세요.';
+<script>
+    // 아이디 찾기 유효성 검사
+    function nameChecks(){
+        //이름 유효성 검사
+        if($("#userName").val() == ''){
+        $("#userNameComment").text("* 이름을 입력해주세요!");
+        $("#userName").focus();
+        return false;
         }
-      } else {
-        요청 실패
-        document.querySelector('.login__end .desc').textContent = '오류가 발생했습니다. 다시 시도해주세요.';
-      }
-    };
+        let getuserName = RegExp(/^[가-힣]+$/);
+        if(!getuserName.test($("#userName").val())){
+            $("#userNameComment").text("* 이름은 한글만 사용 가능합니다.");
+            $("#userName").val('');
+            $("#userName").focus();
+            return false;
+        }
 
-    // 요청 전송
-    xhr.send(JSON.stringify(formData));
-     }
+        // 연락처 유효성 검사
+        if($("#userPhone").val() == ''){
+            $("#userPhoneComment").text("* 연락처를 입력해주세요!");
+            $("#userPhone").focus();
+            return false;
+        }
+        
+        let getuserPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+        if(!getuserPhone.test($("#userPhone").val())){
+            $("#userPhoneComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
+            $("#userPhone").val('');
+            $("#userPhone").focus();
+            return false;
+        }
+    }
+</script>
 
-  // 회원가입 폼 제출 시 Ajax 요청 수행
-  document.getElementById('join__confirm').addEventListener('click', function(event) {
-    event.preventDefault();
-    registerUser();
-  });
+<script>
+    // 아이디 찾기 완료
+    $("#findIdForm").click(function() {
+        let userName = $("#userNameIdFind").val();
+        let userPhone = $("#userPhoneIdFind").val();
+
+        $.ajax({
+            url: "../login/idFindCompelete.php", // 아이디 찾기 로직이 있는 PHP 페이지의 URL로 대체해야 함
+            type: "POST",
+            data: {
+                "userName": userName,
+                "userPhone": userPhone
+            },
+            success: function(response) {
+                $(".login__wrap").html(response); // 아이디 찾기 결과를 표시할 영역에 결과를 삽입
+            }
+        });
+    });
+</script>
+
+<script>
+    // 비밀번호 찾기 유효성 검사
+    function pwdChecks(){
+            // 비밀번호 유효성 검사
+            if($("#userPass").val() == ''){
+            $("#userPassComment").text("* 비밀번호를 입력해주세요!");
+            $("#userPass").focus();
+            return false;
+        }
+
+        // 8~20자이내, 공백X, 영문, 숫자, 특순문자 
+        let getuserPass = $("#userPass").val();
+        let getuserPassNum = getuserPass.search(/[0-9]/g);
+        let getuserPassEng = getuserPass.search(/[a-z]/ig);
+        let getuserPassSpe = getuserPass.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+        if(getuserPass.length < 8 || getuserPass.length > 20){
+            $("#userPassComment").text("* 8자리 ~ 20자리 이내로 입력해주세요~");
+            return false;
+        } else if (getuserPass.search(/\s/) != -1){
+            $("#userPassComment").text("* 비밀번호는 공백없이 입력해주세요!");
+            return false;
+        } else if (getuserPassNum < 0 || getuserPassEng < 0 || getuserPassSpe < 0 ){
+            $("#userPassComment").text("* 영문, 숫자, 특수문자를 혼합하여 입력해주세요!");
+            return false;
+        }
+        
+
+        //이름 유효성 검사
+        if($("#userName").val() == ''){
+            $("#userNameComment").text("* 이름을 입력해주세요!");
+            $("#userName").focus();
+            return false;
+        }
+        let getuserName = RegExp(/^[가-힣]+$/);
+        if(!getuserName.test($("#userName").val())){
+            $("#userNameComment").text("* 이름은 한글만 사용 가능합니다.");
+            $("#userName").val('');
+            $("#userName").focus();
+            return false;
+        }
+        
+        // 연락처 유효성 검사
+        if($("#userPhone").val() == ''){
+            $("#userPhoneComment").text("* 연락처를 입력해주세요!");
+            $("#userPhone").focus();
+            return false;
+        }
+        
+        let getuserPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+        if(!getuserPhone.test($("#userPhone").val())){
+            $("#userPhoneComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
+            $("#userPhone").val('');
+            $("#userPhone").focus();
+            return false;
+        }
+    }
+</script>
+
+<script>
+    // 비밀번호 찾기 완료
+    $("#findPwdForm").click(function() {
+        let userEmail = $("#userEmailPwdFind").val();
+        let userName = $("#userNamePwdFind").val();
+        let userPhone = $("#userPhonePwdFind").val();
+
+        $.ajax({
+            url: "../login/pwdFindCompelete.php", // 비밀번호 찾기 로직이 있는 PHP 페이지의 URL로 대체해야 함
+            type: "POST",
+            data: {
+                "userEmail": userEmail,
+                "userName": userName,
+                "userPhone": userPhone
+            },
+            success: function(response) {
+                $(".login__wrap").html(response); // 비밀번호 찾기 결과를 표시할 영역에 결과를 삽입
+            }
+        });
+    });
 </script>

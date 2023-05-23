@@ -201,3 +201,117 @@ main {
     float: right;
     margin: 10px;
 }
+
+/* comment */
+.comment {
+    margin-bottom: 100px;
+}
+.comment__write fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.comment__write input {
+    width: 49.5%;
+    padding: 10px;
+    border: 1px solid #a4a4a4;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #fff;
+}
+.comment__write textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+    border: 1px solid #a4a4a4;
+    background-color: transparent;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    color: #fff;
+}
+.comment__view {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+.comment__view .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #a4a4a4;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.comment__view .info {
+    width: calc(100% - 60px);
+}
+.comment__view .info .nickname {
+    font-size: 1.6em;
+}
+.comment__view .info .date {
+    color: #aeaeae;
+    font-weight: 100;
+}
+.comment__view .info .msg {
+    color: #cccccc;
+}
+.comment__view .info .del {
+    text-align: right;
+}
+.comment__view .info .del a {
+    color: #8c8c8c;
+}
+.comment__view .info .del a:hover {
+    color: #434343;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.comment__delete {
+    margin-top: 10px;
+}
+.comment__delete input {
+    padding: 1px;
+    border: 1px solid #a4a4a4;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+}
+.comment__delete button {
+    border: 1px solid #a4a4a4;
+    cursor: pointer;
+}
+.comment__delete button:last-child {
+    background-color: #c1c1c1;
+}
+.comment__modify {
+    margin-top: 10px;
+}
+.comment__modify textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid #a4a4a4;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #fff;
+}
+.comment__modify input {
+    padding: 1px;
+    border: 1px solid #a4a4a4;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+}
+.comment__modify button {
+    border: 1px solid #a4a4a4;
+    cursor: pointer;
+}
+.comment__modify button:last-child {
+    background-color: #c1c1c1;
+}

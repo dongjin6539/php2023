@@ -1,7 +1,12 @@
 .login__popup,
 .login__popup2,
 .login__popup3,
-.login__popup4 {
+.login__popup4,
+.login__popup5,
+.login__popup6,
+.login__popup7,
+.login__popup8
+ {
     position: fixed;
     width: 100%;
     height: 100%;
