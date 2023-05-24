@@ -8,7 +8,7 @@
 
     $memberID = $_SESSION['memberID'];  // 현재 사용자의 ID를 가져옵니다.
 
-    if( $type == "isEmailCheck"){
+    if( $type == "mypageisEmailCheck"){
         // $userEmail = $connect -> real_escape_string(trim($_POST['userEmail']));
         // $sql = "SELECT userEmail FROM userMembers WHERE userEmail = '{$userEmail}'";
 
@@ -16,7 +16,7 @@
         // 현재 사용자의 이메일을 제외한 나머지 회원들의 이메일과 비교
         $sql = "SELECT userEmail FROM userMembers WHERE userEmail = '{$userEmail}' AND memberID != '{$memberID}'";
     }
-    if( $type == "isNickCheck"){
+    if( $type == "mypageisNickCheck"){
         // $userNickname = $connect -> real_escape_string(trim($_POST['userNickname']));
         // $sql = "SELECT userNickname FROM userMembers WHERE userNickname = '{$userNickname}'";
 

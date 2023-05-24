@@ -69,16 +69,16 @@
                                 if($result && $result -> num_rows > 0){
                                     echo "<div class='box'><label for='userName'>이름: </label><input name='userName' id='userName' type='text' value='".$info['userName']."' readonly></div>";
 
-                                    echo "<div class='box'><label for='userEmail'>이메일: </label><div class='check__wrap'><div class='input__wrap'><input name='userEmail' id='userEmail' type='email' placeholder='".$info['userEmail']."' required>";
-                                    echo "<a href='#c' class='btnStyleM' onclick='emailChecking()'>중복 확인</a></div>";
-                                    echo "<p class='warning' id='userEmailComment'><!--이메일 검사--></p></div></div>";
+                                    echo "<div class='box'><label for='userEmailMy'>이메일: </label><div class='check__wrap'><div class='input__wrap'><input name='userEmailMy' id='userEmailMy' type='email' placeholder='".$info['userEmail']."' required>";
+                                    echo "<a href='#c' class='btnStyleM' onclick='myemailChecking()'>중복 확인</a></div>";
+                                    echo "<p class='warning' id='userEmailMyComment'><!--이메일 검사--></p></div></div>";
 
-                                    echo "<div class='box'><label for='userNickname'>닉네임: </label><div class='check__wrap'><div class='input__wrap'><input name='userNickname' id='userNickname' type='text' placeholder='".$info['userNickname']."' required>";
-                                    echo "<a href='#c' class='btnStyleM' onclick='nickChecking()'>중복 확인</a></div>";
-                                    echo "<p class='warning' id='userNicknameComment'><!--닉네임 검사--></p></div></div>";
+                                    echo "<div class='box'><label for='userNicknameMy'>닉네임: </label><div class='check__wrap'><div class='input__wrap'><input name='userNicknameMy' id='userNicknameMy' type='text' placeholder='".$info['userNickname']."' required>";
+                                    echo "<a href='#c' class='btnStyleM' onclick='mynickChecking()'>중복 확인</a></div>";
+                                    echo "<p class='warning' id='userNicknameMyComment'><!--닉네임 검사--></p></div></div>";
 
-                                    echo "<div class='box'><label for='userPhone'>연락처: </label><div class='input__wrap2'><input name='userPhone' id='userPhone' type='text' placeholder='".$info['userPhone']."' required>";
-                                    echo "<p class='warning' id='userPhoneComment'><!--연락처 검사--></p></div></div>";
+                                    echo "<div class='box'><label for='userPhoneMy'>연락처: </label><div class='input__wrap2'><input name='userPhoneMy' id='userPhoneMy' type='text' placeholder='".$info['userPhone']."' required>";
+                                    echo "<p class='warning' id='userPhoneMyComment'><!--연락처 검사--></p></div></div>";
                                     echo "<button type='submit'>수정 완료</button>";
                                 }
                             ?>
@@ -104,38 +104,38 @@
         };
 
         // 유효성 검사
-        let isEmailCheck = false;
-        let isNickCheck = false;
+        let mypageisEmailCheck = false;
+        let mypageisNickCheck = false;
 
-        function emailChecking(){
-            let userEmail = $("#userEmail").val();
+        function myemailChecking(){
+            let userEmail = $("#userEmailMy").val();
             // 이메일 유효성 검사
-            if($("#userEmail").val() == ''){
-                $("#userEmailComment").text("* 이메일을 입력해주세요!");
-                $("#userEmail").focus();
+            if($("#userEmailMy").val() == ''){
+                $("#userEmailMyComment").text("* 이메일을 입력해주세요!");
+                $("#userEmailMy").focus();
                 return false;
             }
             let getuserEmail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([\-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i);
-            if(!getuserEmail.test($("#userEmail").val())){
-                $("#userEmailComment").text("* 이메일 형식에 맞게 작성해주세요!");
-                $("#userEmail").val('');
-                $("#userEmail").focus();
+            if(!getuserEmail.test($("#userEmailMy").val())){
+                $("#userEmailMyComment").text("* 이메일 형식에 맞게 작성해주세요!");
+                $("#userEmailMy").val('');
+                $("#userEmailMy").focus();
                 return false;
             }
             if(userEmail == null || userEmail == ''){
-                $("#userEmailComment").text("* 이메일을 입력해주세요");
+                $("#userEmailMyComment").text("* 이메일을 입력해주세요");
             }else {
                 $.ajax({
                     type : "POST",
                     url : "mypageEnd.php",
-                    data : {"userEmail" : userEmail, "type" : "isEmailCheck"},
+                    data : {"userEmail" : userEmail, "type" : "mypageisEmailCheck"},
                     dataType : "json",
                     success : function(data){
                         if(data.result == "good"){
-                            $("#userEmailComment").text("* 사용 가능한 이메일 입니다");
+                            $("#userEmailMyComment").text("* 사용 가능한 이메일 입니다");
                             isEmailCheck = true;
                         }else {
-                            $("#userEmailComment").text("* 이미 존재하는 이메일 입니다");
+                            $("#userEmailMyComment").text("* 이미 존재하는 이메일 입니다");
                             isEmailCheck = false;
                         }
                     },
@@ -147,35 +147,35 @@
                 })
             }
         }
-        function nickChecking(){
-            let userNickname = $("#userNickname").val();
+        function mynickChecking(){
+            let userNickname = $("#userNicknameMy").val();
             // 닉네임 유효성 검사
-            if($("#userNickname").val() == ''){
-                $("#userNicknameComment").text("* 닉네임을 입력해주세요!");
-                $("#userNickname").focus();
+            if($("#userNicknameMy").val() == ''){
+                $("#userNicknameMyComment").text("* 닉네임을 입력해주세요!");
+                $("#userNicknameMy").focus();
                 return false;
             }
             let getuserNickname = RegExp(/^[가-힣|0-9]+$/);
-            if(!getuserNickname.test($("#userNickname").val())){
-                $("#userNicknameComment").text("* 닉네임은 한글 또는 숫자만 사용 가능합니다.");
-                $("#userNickname").val('');
-                $("#userNickname").focus();
+            if(!getuserNickname.test($("#userNicknameMy").val())){
+                $("#userNicknameMyComment").text("* 닉네임은 한글 또는 숫자만 사용 가능합니다.");
+                $("#userNicknameMy").val('');
+                $("#userNicknameMy").focus();
                 return false;
             }
             if(userNickname == null || userNickname == ''){
-                $("#userNicknameComment").text("* 닉네임을 입력해주세요!");
+                $("#userNicknameMyComment").text("* 닉네임을 입력해주세요!");
             } else {
                 $.ajax({
                     type : "POST",
                     url : "mypageEnd.php",
-                    data : {"userNickname" : userNickname, "type" : "isNickCheck"},
+                    data : {"userNickname" : userNickname, "type" : "mypageisNickCheck"},
                     dataType : "json",
                     success : function(data){
                         if(data.result == "good"){
-                            $("#userNicknameComment").text("* 사용 가능한 닉네임 입니다");
+                            $("#userNicknameMyComment").text("* 사용 가능한 닉네임 입니다");
                             isNickCheck = true;
                         }else {
-                            $("#userNicknameComment").text("* 이미 존재하는 닉네임 입니다");
+                            $("#userNicknameMyComment").text("* 이미 존재하는 닉네임 입니다");
                             isNickCheck = true;
                         }
                     },
@@ -190,27 +190,27 @@
 
         function joinChecks(){
             // 연락처 유효성 검사
-            if($("#userPhone").val() == ''){
-                $("#userPhoneComment").text("* 연락처를 입력해주세요!");
-                $("#userPhone").focus();
+            if($("#userPhoneMy").val() == ''){
+                $("#userPhoneMyComment").text("* 연락처를 입력해주세요!");
+                $("#userPhoneMy").focus();
                 return false;
             }
             let getuserPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
-            if(!getuserPhone.test($("#userPhone").val())){
-                $("#userPhoneComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
-                $("#userPhone").val('');
-                $("#userPhone").focus();
+            if(!getuserPhone.test($("#userPhoneMy").val())){
+                $("#userPhoneMyComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
+                $("#userPhoneMy").val('');
+                $("#userPhoneMy").focus();
                 return false;
             }
 
                 // 중복 검사를 통과했는지 확인
             if (!isEmailCheck){
-                $("#userEmailComment").text("* 이메일 중복을 확인해주세요.");
+                $("#userEmailMyComment").text("* 이메일 중복을 확인해주세요.");
                 return false;
             }
 
             if (!isNickCheck){
-                $("#userNicknameComment").text("* 닉네임 중복을 확인해주세요.");
+                $("#userNicknameMyComment").text("* 닉네임 중복을 확인해주세요.");
                 return false;
             }
         }

@@ -1,8 +1,3 @@
-<?php
-    include "../connect/connect.php";
-    include "../connect/session.php";
-?>
-
 <header id="header">
     <h1><a href="../main/main.php">헬드백</a></h1>
     <div class="header__login">

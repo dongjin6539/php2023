@@ -3,9 +3,9 @@
     include "../connect/session.php";
 
     $userName = $_POST['userName'];
-    $userEmail = $_POST['userEmail'];
-    $userNickname = $_POST['userNickname'];
-    $userPhone = $_POST['userPhone'];
+    $userEmail = $_POST['userEmailMy'];
+    $userNickname = $_POST['userNicknameMy'];
+    $userPhone = $_POST['userPhoneMy'];
 
     $userName = $connect -> real_escape_string($userName);
     $userEmail = $connect -> real_escape_string($userEmail);
@@ -74,7 +74,7 @@
                 echo "<script>alert('완료되었습니다.')</script>";
                 $sql = "UPDATE userMembers SET userName = '{$userName}', userEmail = '{$userEmail}',  userNickname = '{$userNickname}', userPhone = '{$userPhone}' WHERE memberID = '{$memberID}'";
                 $result = $connect -> query($sql);
-                echo "<script>location.href='mypageModify.php'</script>";
+                echo "<script>location.href='mypage.php'</script>";
             }
         } else {
             echo "<script>alert('형식에 맞지 않습니다. 다시 한번 확인해주세요!')</script>";
@@ -86,4 +86,6 @@
         exit();
         echo "<script>location.href='mypage.php'</script>";
     }
+
+    
 ?>  
