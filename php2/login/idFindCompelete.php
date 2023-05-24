@@ -35,7 +35,7 @@
             </div>
             <div>
                 <button type='button' class='btnStyle login2'>로그인</button>
-                <button type='button' class='btnStyle pwdFind'>비밀번호 찾기</button>
+                <button type='button' class='btnStyle pwdFind2'>비밀번호 찾기</button>
             </div>
         ";
     } else {
@@ -53,8 +53,8 @@
                 회원가입을 하시면 사용하실 수 있습니다.
             </div>
             <div>
-                <button type='button' class='btnStyle join'>회원가입</button>
-                <button type='button' class='btnStyle main'>메인</button>
+                <button type='button' class='btnStyle join2'>회원가입</button>
+                <button type='button' class='btnStyle main2'>메인</button>
             </div>
         ";
     }

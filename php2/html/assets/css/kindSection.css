@@ -163,6 +163,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
+    transition: all 0.3s;
+}
+.share .share__inner .cards__inner .card:hover {
+    background-color: rgb(125, 146, 183);
 }
 .share .share__inner .cards__inner .card .card__info .author {
     width: 40%;

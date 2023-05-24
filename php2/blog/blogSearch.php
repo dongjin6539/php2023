@@ -17,17 +17,17 @@
     $searchKeyword = $connect -> real_escape_string(trim($searchKeyword));
     $searchOption = $connect -> real_escape_string(trim($searchOption));
 
-    $sql = "SELECT b.blogID , b.blogTitle, b.blogContents, m.userName, b.blogRegTime, b.blogView FROM blog b JOIN userMembers m ON(b.memberID = m.memberID) ";
+    $sql = "SELECT * FROM blog ";
 
     switch($searchOption){
         case "title":
-            $sql .= "WHERE b.blogTitle LIKE '%{$searchKeyword}%' ORDER BY blogID DESC ";
+            $sql .= "WHERE blogTitle LIKE '%{$searchKeyword}%' ORDER BY blogID DESC ";
             break;
         case "content":
-            $sql .= "WHERE b.blogContents LIKE '%{$searchKeyword}%' ORDER BY blogID DESC ";
+            $sql .= "WHERE blogContents LIKE '%{$searchKeyword}%' ORDER BY blogID DESC ";
             break;
         case "name":
-            $sql .= "WHERE m.userName LIKE '%{$searchKeyword}%' ORDER BY blogID DESC ";
+            $sql .= "WHERE blogAuthor LIKE '%{$searchKeyword}%' ORDER BY blogID DESC ";
             break;
     }
     $result = $connect -> query($sql);
@@ -64,18 +64,39 @@
         <!-- banner -->
         <main>
             <div class="board__inner">
-                <h2>운동 방법</h2>
+            <h2>운동 방법 공유</h2>
                 <div class="board__search">
                     <form action="blogSearch.php" name="blogSearch" method="get">
                         <fieldset>
-                            <a href="blog.php" class="btnStyle4 mr10">목록보기</a>
+                            <legend class="blind">게시판 검색 영역</legend>
+                            <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!">
+                            <select name="searchOption" id="searchOption">
+                                <option value="title">제목</option>
+                                <option value="content">내용</option>
+                                <option value="name">등록자</option>
+                            </select>
+                            <button type="submit" class="btnStyle4">검색</button>
                             <a href="blogWrite.php" class="btnStyle4">글쓰기</a>
                         </fieldset>
                     </form>
                 </div>
+                <div class="category">
+                    <ul>
+                        <li><a href="blogCate.php?category=all">All</a></li>  |&nbsp;&nbsp;
+                        <li><a href="blogCate.php?category=cehst">가슴(Chest)</a></li>  |&nbsp;&nbsp;
+                        <li><a href="blogCate.php?category=back">등(Back)</a></li>  |&nbsp;&nbsp;  
+                        <li><a href="blogCate.php?category=shoulder">어깨(Shoulder)</a></li>  |&nbsp;&nbsp;  
+                        <li><a href="blogCate.php?category=leg">하체(Leg)</a></li>  |&nbsp;&nbsp;  
+                        <li><a href="blogCate.php?category=arm">팔(Arm)</a></li>  |&nbsp;&nbsp;  
+                        <li><a href="blogCate.php?category=abs">복근(Abs)</a></li> 
+                    </ul>
+                </div>
+                <div class="share">
+                    <div class="share__inner">
+                        <div class="cards__inner col4 line1">
                         
 <?php
-    $viewNum = 10; // 한 페이지에 보여줄 개시글 개수
+    $viewNum = 12; // 한 페이지에 보여줄 개시글 개수
     $viewLimit = ($viewNum * $page) - $viewNum;
 
     $sql .= "LIMIT {$viewLimit}, {$viewNum}";
@@ -86,22 +107,31 @@
 
         if($count > 0){
             for($i=0; $i<$count; $i++){
-                $info = $result -> fetch_array(MYSQLI_ASSOC);
-
-                // 데이터 입력하기
-                // echo "<tr>";
-                // echo "<td>".$info['blogID']."</td>";
-                // echo "<td><a href='boardView.php?blogID={$info['blogID']}'>".$info['blogTitle']."</a></td>";
-                // echo "<td>".$info['userName']."</td>";
-                // echo "<td>".date('Y-m-d', $info['blogRegTime'])."</td>";
-                // echo "<td>".$info['blogView']."</td>";
-                // echo "</tr>";
-            }
+                $info = $result -> fetch_array(MYSQLI_ASSOC); ?>
+                <div class="card">
+                    <figure class="card__img">
+                        <a href="blogView.php?blogID=<?= $info['blogID']?>">
+                            <img src="../assets/blog/<?= $info['blogImgFile'] ?>" alt="<?= $info['blogTitle'] ?>">
+                        </a>
+                    </figure>
+                    <div class="card__title">
+                        <h3><?= $info['blogTitle'] ?></h3>
+                    </div>      
+                    <div class="card__info">
+                        <span class="author"><?= $info['blogAuthor']?></span>
+                        <span class="like">조회수 : <?= $info['blogView']?></span>
+                        <span class="date"><?= date('Y-m-d', $info['blogRegTime'])?></span>
+                        <a href="#" class="more">열람</a>
+                    </div>   
+                </div>
+            <?php }
         } else {
-            // echo "<tr><td colspan='5'>게시글이 없습니다.</td></tr>";
+            echo "게시글이 없습니다.";
         }
     }
 ?>
+                        </div>
+                    </div>
                 </div>
                 <div class="board__pages">
                     <ul>

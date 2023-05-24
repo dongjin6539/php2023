@@ -24,6 +24,6 @@
     if($result){
         echo "create tables complete";
     } else {
-        // echo "create tables false";
+        echo "create tables false";
     }
 ?>

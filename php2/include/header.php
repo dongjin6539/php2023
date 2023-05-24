@@ -13,19 +13,48 @@
             $info = $result -> fetch_array(MYSQLI_ASSOC);
         ?>
         <ul>
-            <li><a href="#"><?= $info['userNickname'] ?> 회원님</a></li>
+            <li><a href="#c" class="member"><?= $info['userNickname'] ?> 회원님</a></li>
         </ul>
       <?php } ?>
     </div>
     <div class="icon__box">
         <ul>
             <?php if(isset($_SESSION['memberID'])){?>
-                <li class="logout"><a href="../login/logout.php"><img src="../html/assets/img/icon_logout.svg" alt="로그아웃" title="로그아웃"></a></li>
-                <li><a href="../mypage/mypage.php"><img src="../html/assets/img/icon_mypage.svg" alt="마이페이지" title="마이페이지"></a></li>
+
+                <!-- <li class="logout">
+                    <a href="../login/logout.php">
+                        <img src="../html/assets/img/icon_logout.svg" alt="로그아웃" title="로그아웃">
+                    </a>
+                </li> -->
+                <li class="logout">
+                    <a href="../login/logout.php">
+                        <img src="../html/assets/img/icon_logout.svg" class="logout1" alt="로그아웃" title="로그아웃">
+                        <img src="../html/assets/img/icon_logout2.svg" class="logout2" alt="로그아웃" title="로그아웃">
+                    </a>
+                </li>
+                <li class="myp">
+                    <a href="../mypage/mypage.php">
+                        <img src="../html/assets/img/icon_mypage.svg" class="mypage1" alt="마이페이지" title="마이페이지">
+                        <img src="../html/assets/img/icon_mypage2.svg" class="mypage2" alt="마이페이지" title="마이페이지">
+                    </a>
+                </li>
             <?php } else{?>
-                <li class="login"><img src="../html/assets/img/icon_login.svg" alt="로그인" title="로그인"></li>
+                <!-- <li class="login">
+                        <img src="../html/assets/img/icon_login.svg" alt="로그인" title="로그인">
+                    </li> -->
+                <li class="login">
+                    <a href="#c">
+                        <img src="../html/assets/img/icon_login.svg" class="login1" alt="로그인" title="로그인">
+                        <img src="../html/assets/img/icon_login2.svg" class="login2" alt="로그인2" title="로그인">
+                    </a>
+                </li>
             <?php } ?>
-            <li class="btn__menu"><a href="#c"><img src="../html/assets/img/icon_menu.svg" alt="메뉴" title="메뉴"></a></li>
+            <li class="btn__menu">
+                <a href="#c">
+                    <img src="../html/assets/img/icon_menu.svg" class="menu1" alt="메뉴" title="메뉴">
+                    <img src="../html/assets/img/icon_menu2.svg" class="menu2" alt="메뉴2" title="메뉴">
+                </a>
+            </li>
         </ul>
     </div>
 </header>
@@ -72,11 +101,11 @@
             </div>
         </div>
         <div class="login__form">
-            <form action="../login/loginSave.php" name="login" method="post">
+            <form action="loginCompelete.php" name="loginCompelete" method="post">
                 <fieldset>
-                <legend class="blind">아이디와 비밀번호 입력해주세요</legend>
-                    <input type="text" class="inputStyle" name="userEmail" placeholder="이메일을 입력해주세요!">
-                    <input type="password" class="inputStyle" name="userPass" placeholder="비밀번호를 입력해주세요!">
+                    <legend class="blind">아이디와 비밀번호 입력해주세요</legend>
+                    <input type="text" class="inputStyle" name="userEmailLogin" id="userEmailLogin" placeholder="이메일을 입력해주세요!">
+                    <input type="password" class="inputStyle" name="userPassLogin" id="userPassLogin" placeholder="비밀번호를 입력해주세요!">
                     <div class="login__list">
                         <ul>
                             <li><a href="#c" class="idFind">아이디 찾기</a></li>
@@ -84,7 +113,7 @@
                             <li><a href="#c" class="join">회원가입</a></li>
                         </ul>
                     </div>
-                    <button type="submit" class="btnStyle">로그인</button>
+                    <button class="btnStyle" id="loginForm">로그인</button>
                     <button type="button" class="btnStyle close">닫기</button>
                 </fieldset>
             </form>
@@ -171,8 +200,8 @@
             </div>
         </div>
         <div>
-            <a href="#c" class="btnStyle atag agree" id="information__confirm">동의</a>
-            <a href="#c" class="btnStyle atag close2">취소</a>
+            <a href="#c" class="btnStyle atag agree confirm__hover" id="information__confirm">동의</a>
+            <a href="#c" class="btnStyle atag close2 atag__hover">취소</a>
         </div>
     </div>
 </div>
@@ -300,44 +329,8 @@
 </div>
 <!-- //아이디 찾기 -->
 
-<!-- 아이디 찾기 완료 -->
-<div class="login__popup6">
-    <div class='login__wrap'>
-        <!-- <div class='login__title'>
-            <div class='login__logo'>
-                <img src='../html/assets/img/logo.png' alt='로고'>
-            </div>
-            <div class='login__desc'>
-                <h2>아이디 확인</h2>
-                <span class='desc'>아이디 찾기가 완료되었습니다.</span>
-            </div>
-        </div>
-        <div class='text'>
-            회원님의 아이디는<br>
-            <span>".$row[2]."</span>
-        </div>
-        <div>
-            <button class='btnStyle login'>로그인</button>
-            <button class='btnStyle pwdFind'>비밀번호 찾기</button>
-        </div>
-        <div class='login__desc'>
-                <h2>아이디 확인</h2>
-                <span class='desc'>회원님의 등록된 아이디가 없습니다.</span>
-            </div>
-        </div>
-        <div class='text mb30'>
-            회원가입을 하시면 사용하실 수 있습니다.
-        </div>
-        <div>
-            <button class='btnStyle join'>회원가입</button>
-            <button class='btnStyle main'>메인</button>
-        </div> -->
-    </div>
-</div>
-<!-- //아이디 찾기 완료 -->
-
 <!-- 비밀번호 찾기 -->
-<div class="login__popup7">
+<div class="login__popup6">
     <div class="login__wrap">
         <div class="login__title">
             <div class="login__logo">
@@ -379,41 +372,6 @@
 </div>
 <!-- // 비밀번호 찾기 -->
 
-<!-- 비밀번호 찾기 완료 -->
-<div class="login__popup8">
-    <div class="login__wrap">
-        <!-- <div class="login__title">
-            <div class="login__logo">
-                <img src="../html/assets/img/logo.png" alt="로고">
-            </div>  
-        <div class='login__desc'>
-                <h2>비밀번호 확인</h2>
-                <span class='desc'>비밀번호 찾기가 완료되었습니다.</span>
-            </div>
-        </div>
-        <div class='text'>
-            회원님의 비밀번호는<br>
-            <span>".$row[3]."</span>
-        </div>                
-        <div>
-            <button class='btnStyle login'>로그인</button>
-        </div>
-        <div class='login__desc'>
-                <h2>비밀번호 확인</h2>
-                <span class='desc'>회원님의 등록된 정보가 없습니다.</span>
-            </div>
-        </div>
-        <div class='text mb30'>
-            회원가입을 하시면 사용하실 수 있습니다.
-        </div>
-        <div>
-            <button class='btnStyle join'>회원가입</button>
-            <button class='btnStyle main'>메인</button>
-        </div> -->
-    </div>
-</div>
-<!-- // 비밀번호 찾기 완료 -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     const btnMenu = document.querySelector(".btn__menu");
@@ -429,7 +387,7 @@
     document.querySelector(".icon__box .login").addEventListener("click", () => {
         document.querySelector(".login__popup").style.display = "block";
     });
-    document.querySelector(".close").addEventListener("click", () => {
+    document.querySelector(".login__popup .close").addEventListener("click", () => {
         document.querySelector(".login__popup").style.display = "none";
     });
     document.querySelector(".nav__wrap .login").addEventListener("click", () => {
@@ -463,6 +421,7 @@
     });
     document.querySelector(".login__popup5 .login__list .pwdFind").addEventListener("click", () => {
         document.querySelector(".login__popup5").style.display = "none";
+        document.querySelector(".login__popup6").style.display = "block";
     });
     document.querySelector(".login__popup5 .login__list .join").addEventListener("click", () => {
         document.querySelector(".login__popup5").style.display = "none";
@@ -473,35 +432,48 @@
         document.querySelector(".login__popup").style.display = "block";
     });
 
-    // 아이디 찾기 완료
-    document.querySelector(".login__popup5 .login2").addEventListener("click", () => {
-        document.querySelector(".login__popup5").style.display = "none";
-        document.querySelector(".login__popup").style.display = "block";
-    });
-
     // 비밀번호 찾기
-    document.querySelector(".login__list .pwdFind").addEventListener("click", () => {
-        document.querySelector(".login__popup7").style.display = "block";
+    document.querySelector(".login__popup .login__list .pwdFind").addEventListener("click", () => {
+        document.querySelector(".login__popup").style.display = "none";
+        document.querySelector(".login__popup6").style.display = "block";
     });
-    document.querySelector(".login__popup7 .pwdFind__close").addEventListener("click", () => {
-        document.querySelector(".login__popup7").style.display = "none";
+    document.querySelector(".login__popup6 .pwdFind__close").addEventListener("click", () => {
+        document.querySelector(".login__popup6").style.display = "none";
     });
-    document.querySelector(".login__popup7 .login").addEventListener("click", () => {
-        document.querySelector(".login__popup7").style.display = "none";
+    document.querySelector(".login__popup6 .login").addEventListener("click", () => {
+        document.querySelector(".login__popup6").style.display = "none";
         document.querySelector(".login__popup").style.display = "block";
     });
-    document.querySelector(".login__popup7 .idFind").addEventListener("click", () => {
-        document.querySelector(".login__popup7").style.display = "none";
+    document.querySelector(".login__popup6 .idFind").addEventListener("click", () => {
+        document.querySelector(".login__popup6").style.display = "none";
         document.querySelector(".login__popup5").style.display = "block";
     });
-    document.querySelector(".login__popup7 .join").addEventListener("click", () => {
-        document.querySelector(".login__popup7").style.display = "none";
+    document.querySelector(".login__popup6 .join").addEventListener("click", () => {
+        document.querySelector(".login__popup6").style.display = "none";
         document.querySelector(".login__popup2").style.display = "block";
     });
+</script>
 
+<script>
+    // 로그인 실패
+    $("#loginForm").click(function(event) {
+        event.preventDefault();
 
-    
+        let userEmail = $("#userEmailLogin").val();
+        let userPass = $("#userPassLogin").val();
 
+        $.ajax({
+            url: "../login/loginCompelete.php", // 로그인 로직이 있는 PHP 페이지의 URL로 대체해야 함
+            type: "POST",
+            data: {
+                "userEmail": userEmail,
+                "userPass": userPass
+            },
+            success: function(response) {
+                $(".login__wrap").html(response); // 로그인 결과를 표시할 영역에 결과를 삽입
+            }
+        });
+    });
 </script>
 
 <script>
@@ -780,7 +752,9 @@
 
 <script>
     // 아이디 찾기 완료
-    $("#findIdForm").click(function() {
+    $("#findIdForm").click(function(event) {
+        event.preventDefault();
+
         let userName = $("#userNameIdFind").val();
         let userPhone = $("#userPhoneIdFind").val();
 
@@ -792,9 +766,32 @@
                 "userPhone": userPhone
             },
             success: function(response) {
-                $(".login__wrap").html(response); // 아이디 찾기 결과를 표시할 영역에 결과를 삽입
+                $(".login__popup5 .login__wrap").html(response); // 아이디 찾기 결과를 표시할 영역에 결과를 삽입
+
+                executeScript();
             }
         });
+
+        function executeScript(){
+            $(".login__popup5").on("click", ".login2", function() {
+                $(".login__popup5").hide();
+                $(".login__popup").show();
+            });
+
+            $(".login__popup5").on("click", ".pwdFind2", function() {
+                $(".login__popup5").hide();
+                $(".login__popup6").show();
+            });
+
+            $(".login__popup5").on("click", ".join2", function() {
+                $(".login__popup5").hide();
+                $(".login__popup2").show();
+            });
+
+            $(".login__popup5").on("click", ".main2", function() {
+                $(".login__popup5").hide();
+            });
+        };
     });
 </script>
 
@@ -859,7 +856,9 @@
 
 <script>
     // 비밀번호 찾기 완료
-    $("#findPwdForm").click(function() {
+    $("#findPwdForm").click(function(event) {
+        event.preventDefault();
+
         let userEmail = $("#userEmailPwdFind").val();
         let userName = $("#userNamePwdFind").val();
         let userPhone = $("#userPhonePwdFind").val();
@@ -873,8 +872,25 @@
                 "userPhone": userPhone
             },
             success: function(response) {
-                $(".login__wrap").html(response); // 비밀번호 찾기 결과를 표시할 영역에 결과를 삽입
+                $(".login__popup6 .login__wrap").html(response); // 비밀번호 찾기 결과를 표시할 영역에 결과를 삽입
+
+                executeScript();
             }
         });
+
+        function executeScript(){
+            $(".login__popup6").on("click", ".login3", function() {
+                $(".login__popup6").hide();
+                $(".login__popup").show();
+            });
+            $(".login__popup6").on("click", ".join3", function() {
+                $(".login__popup6").hide();
+                $(".login__popup2").show();
+            });
+            $(".login__popup6").on("click", ".main3", function() {
+                $(".login__popup6").hide();
+                $(".login__popup").hide();
+            });
+        };
     });
 </script>

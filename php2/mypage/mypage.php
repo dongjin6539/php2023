@@ -32,13 +32,13 @@
                 </div>
             </div>
             <div class="login__form">
-                <form action="../join/WithdrawalSave.php" name="WithdrawalSave" method="post" onsubmit="return Withdrawal()">
+                <form action="WithdrawalSave.php" name="WithdrawalSave" method="post" onsubmit="return Withdrawal()">
                     <fieldset>
                         <legend class="blind">회원 탈퇴 영역입니다.</legend>
 
                         <input type="password" class="inputStyle" name="WithdrawalPass" id="WithdrawalPass" placeholder="회원 탈퇴를 위한 비밀번호를 입력해주세요.">
                         <p id="userPassComment" class="comment"></p>
-                        <button type="submit" class="btnStyle">회원탈퇴</button>
+                        <button class="btnStyle" id="clearForm">회원탈퇴</button>
                         <button type="button" class="btnStyle close">닫기</button>
                     </fieldset>
                 </form>
@@ -72,6 +72,37 @@
                 return false;
             }
         }
+    </script>
+
+    <script>
+        // 회원탈퇴 완료
+        $("#clearForm").click(function(event) {
+            event.preventDefault();
+
+            let userPass = $("#WithdrawalPass").val();
+
+            $.ajax({
+                url: "../join/WithdrawalSave.php", // 회원탈퇴 로직이 있는 PHP 페이지의 URL로 대체해야 함
+                type: "POST",
+                data: {
+                    "userPass": userPass,
+                },
+                success: function(response) {
+                    $(".login__popup3 .login__wrap").html(response); // 회원탈퇴 결과를 표시할 영역에 결과를 삽입
+
+                    // executeScript();
+                }
+            });
+
+            // function executeScript(){
+            //     $(".login__popup3").on("click", ".close", function() {
+            //         $(".login__popup3").hide();
+            //     });
+            //     $(".login__popup3").on("click", ".close4", function() {
+            //         $(".login__popup3").hide();
+            //     });
+            // };
+        });
     </script>
 
     <div id="wrap">

@@ -82,29 +82,23 @@
     } else {
         $page = 1;
     }
-
     $viewNum = 10; // 한 페이지에 보여줄 개시글 개수
     $viewLimit = ($viewNum * $page) - $viewNum;
-
-    $sql = "SELECT b.uBoardID, b.uBoardTitle, m.userName, b.uBoardRegTime, b.uBoardView FROM uBoard b JOIN userMembers m ON(b.memberID = m.memberID) ORDER BY uBoardID DESC LIMIT {$viewLimit}, {$viewNum}";
+    $sql = "SELECT * FROM uBoard ORDER BY uBoardID DESC LIMIT {$viewLimit}, {$viewNum}";
     $result = $connect -> query($sql);
-
     // echo  "<pre>";
     // print_r($result);
     // echo  "</pre>";
-
     if($result){
         $count = $result -> num_rows;
-
         if($count > 0){
             for($i=0; $i<$count; $i++){
                 $info = $result -> fetch_array(MYSQLI_ASSOC);
-
                 // 데이터 입력하기
                 echo "<tr>";
                 echo "<td>".$info['uBoardID']."</td>";
                 echo "<td><a href='boardView.php?uBoardID={$info['uBoardID']}'>".$info['uBoardTitle']."</a></td>";
-                echo "<td>".$info['userName']."</td>";
+                echo "<td>".$info['uBoardAuthor']."</td>";
                 echo "<td>".date('Y-m-d', $info['uBoardRegTime'])."</td>";
                 echo "<td>".$info['uBoardView']."</td>";
                 echo "</tr>";
@@ -134,53 +128,42 @@
 <?php
     // 게시글이 총 개수?
     // 몇 페이지 나옴?
-
     $sql = "SELECT count(uBoardID) FROM uBoard";
     $result = $connect -> query($sql);
-
     $boardTotalCount = $result -> fetch_array(MYSQLI_ASSOC);
     $boardTotalCount = $boardTotalCount['count(uBoardID)'];
-
     // 총 페이지 개수
     $boardTotalCount = ceil($boardTotalCount / $viewNum);
-
         // 1 2 3 4 5 [6] 7 8 9 10 11 ... $boardTotalCount 까지 하면 너무 많이 나옴 ㅠㅠ
     $pageView = 4; // 그래서 기준 페이지 앞뒤로 만들 페이지 개수 설정함
     $startPage = $page - $pageView;
     $endPage = $page + $pageView;
-
     // 처음 페이지 + 마지막 페이지 초기화
     if($startPage < 1) $startPage = 1;
     if($endPage >= $boardTotalCount) $endPage = $boardTotalCount;
-
     // 처음으로 + 이전
     if($page != 1){
         $prevPage = $page - 1;
-        echo "<li><a href='board.php?page={$prevPage}'>이전</a></li>";
         echo "<li><a href='board.php?page=1'>처음으로</a></li>";
+        echo "<li><a href='board.php?page={$prevPage}'>이전</a></li>";
     }
-
     // 페이지
     for($i=$startPage; $i<=$endPage; $i++){
         $active = "";
         if($i == $page) $active = "active"; // 보고 있는 페이지가 같으면 active라는 문자열 추가
-
         echo "<li class='{$active}'><a href='board.php?page={$i}'>{$i}</a></li>";
     }
-
     // 다음
     // if($page != $boardTotalCount){
-    //     $nextPage = $page + 1; 
+    //     $nextPage = $page + 1;
     //     echo "<li><a href='board.php?page={$nextPage}'>다음</a></li>";
     //     echo "<li><a href='board.php?page={$boardTotalCount}'>마지막으로</a></li>";
     // }
-
     if($page > 0 && $page < $boardTotalCount){
         $nextPage = $page + 1;
         echo "<li><a href='board.php?page={$nextPage}'>다음</a></li>";
         echo "<li><a href='board.php?page={$boardTotalCount}'>마지막으로</a></li>";
     }
-
     // 게시글이 없을 때?
     // if($page > $boardTotalCount || $page <= 0){
     //     echo "<script>alert('게시글이 없습니다.');location.href = 'board.php';</script>";

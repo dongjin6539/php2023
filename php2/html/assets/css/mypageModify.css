@@ -90,3 +90,38 @@
     margin-bottom: 15px;
     cursor: pointer;
 }
+.modify__box form .modify__left label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #5770F8;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.modify__box form .modify__left label:hover {
+    background-color: #808cd3;
+}
+
+.modify__box form .modify__right button {
+    width: 60%;
+    line-height: 40px;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #5770F8;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.modify__box form .modify__right button:hover {
+    background-color: #808cd3;
+}
+.modify__box form .modify__right a {
+    transition: all 0.3s;
+}
+.modify__box form .modify__right a:hover {
+    background-color: #808cd3;
+}

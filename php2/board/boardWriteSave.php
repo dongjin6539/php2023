@@ -3,7 +3,7 @@
     include "../connect/session.php";
 
     $memberID = $_SESSION['memberID'];
-    $uBoardAuthor = $_SESSION['userName'];
+    $uBoardAuthor = $_SESSION['userNickname'];
     $uBoardCategory = $_POST['uBoardCategory'];
 
     $uBoardTitle = htmlspecialchars($_POST['uBoardTitle'], ENT_QUOTES, 'UTF-8');

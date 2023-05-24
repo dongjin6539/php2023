@@ -215,6 +215,7 @@
 }
 .gender label {
     text-align: center;
+    transition: all 0.3s;
 }
 .gender::after {
     content: '성별';
@@ -225,4 +226,27 @@
     font-weight: bold;
     -webkit-text-stroke: 1px #343846;
     font-size: 20px;
+}
+.login__form .gender label:hover {
+    color: #83c5f5;
+}
+.login__form button {
+    transition: all 0.3s;
+}
+.login__form button:hover {
+    background-color: #000;
+    color: #fff;
+}
+.login__form fieldset a.btnStyle2 {
+    transition: all 0.3s;
+}
+.login__form fieldset a.btnStyle2:hover {
+    background-color: #3e8fc9;
+}
+.login__wrap .atag {
+    transition: all 0.3s;
+}
+.login__wrap .atag:hover {
+    background-color: #000;
+    color: #fff;
 }

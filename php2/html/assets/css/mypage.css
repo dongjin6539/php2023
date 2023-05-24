@@ -162,3 +162,29 @@
 #footer {
     background-color: #2D303D;
 }
+
+.userPassComment {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section__left a {
+    display: block;
+    width: 80%;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #5770F8;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+.section__left a:hover {
+    background-color: #808cd3;
+}
+.section__right button.mymo__profile {
+    transition: all 0.3s;
+}
+.section__right button.mymo__profile:hover {
+    background-color: #808cd3;
+}

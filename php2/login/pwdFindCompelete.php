@@ -35,7 +35,7 @@
                 <span>".$row['userPass']."</span>
             </div>                
             <div>
-                <button class='btnStyle login'>로그인</button>
+                <button class='btnStyle login3'>로그인</button>
             </div>
             ";
     } else {
@@ -53,8 +53,8 @@
                 회원가입을 하시면 사용하실 수 있습니다.
             </div>
             <div>
-                <button class='btnStyle join'>회원가입</button>
-                <button class='btnStyle main'>메인</button>
+                <button class='btnStyle join3'>회원가입</button>
+                <button class='btnStyle main3'>메인</button>
             </div>
         ";
     }

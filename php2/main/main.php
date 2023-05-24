@@ -235,7 +235,7 @@
                             운동 시 주의할 점이 많습니다.<br>
                             운동을 하기 전에 미리 알아두면 좋습니다.
                         </p>
-                        <a href="../intro/intro.php#danger">자세히 보기</a>
+                        <a href="../main/intro.php#danger">자세히 보기</a>
                     </div>
                 </div>
             </div>
@@ -245,7 +245,7 @@
     </div>
 
     <script src="https://kit.fontawesome.com/2b2e0121f7.js" crossorigin="anonymous"></script>
-    <script>
+    <script>      
         const slider = document.querySelectorAll(".slider");
         const sliderInner = document.querySelector(".slider__inner");
         const sliderImg2 = document.querySelector(".slider__img");        

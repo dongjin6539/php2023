@@ -36,11 +36,11 @@
             <div class="board__inner">
                 <h2>운동 방법 공유</h2>
                 <div class="board__search">
-                    <form action="#" name="#" method="#">
+                    <form action="blogSearch.php" name="blogSearch" method="get">
                         <fieldset>
                             <legend class="blind">게시판 검색 영역</legend>
-                            <input type="search" placeholder="검색어를 입력하세요!">
-                            <select name="#" id="#">
+                            <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!">
+                            <select name="searchOption" id="searchOption">
                                 <option value="title">제목</option>
                                 <option value="content">내용</option>
                                 <option value="name">등록자</option>

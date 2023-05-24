@@ -3,7 +3,7 @@
     include "../connect/session.php";
 
     $memberID = $_SESSION['memberID'];
-    $blogAuthor = $_SESSION['userName'];
+    $blogAuthor = $_SESSION['userNickname'];
     $blogCategory = $_POST['blogCategory'];
 
     $blogTitle = htmlspecialchars($_POST['blogTitle'], ENT_QUOTES, 'UTF-8');
@@ -20,7 +20,7 @@
     $blogImgName = $_FILES['blogFile']['name'];
     $blogImgTmp = $_FILES['blogFile']['tmp_name'];
 
-    echo $memberID, $blogAuthor, $blogCategory, $blogTitle, $blogContents, $blogView, $blogLike, $blogRegTime;
+    // echo $memberID, $blogAuthor, $blogCategory, $blogTitle, $blogContents, $blogView, $blogLike, $blogRegTime;
 
     // 이미지 파일명 확인
     if($blogImgType){

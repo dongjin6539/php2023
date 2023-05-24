@@ -66,9 +66,16 @@
             <div class="board__inner">
                 <h2>COMMUNITY</h2>
                 <div class="board__search">
-                    <form action="boardSearch.php" name="boardSearch" method="get">
+                <form action="boardSearch.php" name="boardSearch" method="get">
                         <fieldset>
-                    <a href="board.php" class="btnStyle4 mr10">목록보기</a>
+                            <legend class="blind">게시판 검색 영역</legend>
+                            <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!">
+                            <select name="searchOption" id="searchOption">
+                                <option value="title">제목</option>
+                                <option value="content">내용</option>
+                                <option value="name">등록자</option>
+                            </select>
+                            <button type="submit" class="btnStyle4">검색</button>
                             <a href="boardWrite.php" class="btnStyle4">글쓰기</a>
                         </fieldset>
                     </form>
@@ -172,7 +179,7 @@
         if($page > 0 && $page <= $boardTotalCount){
             $active = "";
             if($i == $page) $active = "active";
-            echo "<li class='{$active}'><a href='board.php?page={$i}'>{$i}</a></li>";
+            echo "<li class='{$active}'><a href='boardSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page={$i}'>{$i}</a></li>";
         }        
     }
 
@@ -183,6 +190,7 @@
         echo "<li><a href='boardSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page={$boardTotalCount}'>마지막으로</a></li>";
     }
 ?>
+
                     </ul>
                 </div>
             </div>

@@ -315,3 +315,25 @@ main {
 .comment__modify button:last-child {
     background-color: #c1c1c1;
 }
+.board__search button {
+    margin-right: 10px;
+    transition: all 0.3s;
+}
+.board__search button:hover{
+    background-color: #000;
+    color: #fff;
+}
+.board__search a {
+    transition: all 0.3s;
+}
+.board__search a:hover {
+    background-color: #000;
+    color: #fff;
+}
+.board__btn a {
+    transition: all 0.3s;
+}
+.board__btn a:hover {
+    background-color: #000;
+    color: #fff;
+}

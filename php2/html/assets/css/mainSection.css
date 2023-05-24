@@ -192,3 +192,46 @@
 .carousel-dots ul li.active {
     background-color: #fff;
 }
+
+/* 이미지 */
+ul.product-carousel > li img,
+ul.product-carousel > li div {
+   transition: all 0.3s;
+}
+ul.product-carousel > li:hover img,
+ul.product-carousel > li:hover div {
+    box-shadow: 5px 5px 20px -5px rgb(4, 99, 252);
+}
+
+/* 화살표, 닷 메뉴 */
+.product-carousel-nav .carousel-nav {
+    position: absolute;
+    top: 45%;
+    width: 50px;
+    height: 50px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border-bottom: none;
+    border-left: none;
+    background-color: transparent;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.product-carousel-nav .carousel-nav:hover {
+    border-top: 2px solid rgba(3, 3, 3, 0.5);
+    border-right: 2px solid rgba(3, 3, 3, 0.5);
+} 
+.carousel-dots ul li {
+    display: inline-block;
+    margin: 0 15px;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.carousel-dots ul li:hover {
+    background-color: #fff;
+}

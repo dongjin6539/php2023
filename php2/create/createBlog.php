@@ -18,5 +18,11 @@
     $sql .= "PRIMARY KEY (blogID)";
     $sql .= ") charset=utf8";
 
-    $connect -> query($sql);
+    $result = $connect -> query($sql);
+
+    if($result){
+        echo "create tables complete";
+    } else {
+        echo "create tables false";
+    }
 ?>

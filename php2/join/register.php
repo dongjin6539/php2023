@@ -15,8 +15,12 @@
     $userGender = $data['userGender'];
     $userRegTime = time();
 
+    $userName = $connect -> real_escape_string(trim($userName));
+    $userEmail = $connect -> real_escape_string(trim($userEmail));
+    $userPass = $connect -> real_escape_string(trim($userPass));
+
     // 데이터베이스에 회원 정보 저장
-    $sql = "SELECT userName, userPhone, userEmail FROM userMembers WHERE userName ='$userName' AND userPhone = '$userPhone'";
+    $sql = "INSERT INTO userMembers(userEmail, userName, userNickname, userPass, userPhone, userGender, userImgSrc, userRegTime) VALUES('$userEmail', '$userName', '$userNickname', '$userPass', '$userPhone', '$userGender', 'img_default.jpg', '$userRegTime')";
     $result = $connect -> query($sql);
 
     // 결과 반환

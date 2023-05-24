@@ -66,3 +66,12 @@
     background: rgb(158, 158, 158);  /*스크롤바 뒷 배경 색상*/
     border-radius: 10px;
 }
+.login__wrap .confirm__hover,
+.login__wrap .atag__hover {
+    transition: all 0.3s;
+}
+.login__wrap .confirm__hover:hover,
+.login__wrap .atag__hover:hover {
+    background-color: #000;
+    color: #fff;
+}
