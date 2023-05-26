@@ -98,7 +98,7 @@
                     </div>
                     <div>
                         <label for="blogTitle">제목</label>
-                        <input type="text" id="blogTitle" name="blogTitle" class="inputStyle3">
+                        <input type="text" id="blogTitle" name="blogTitle" class="inputStyle3" required>
                     </div>
                     <div>
                         <label for="blogContents">내용</label>

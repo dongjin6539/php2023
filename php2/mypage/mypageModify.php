@@ -54,30 +54,30 @@
                 <h1 class="mypage">마이페이지</h1>
                 <h2>정보 수정</h2>
                 <div class="modify__box">
-                    <form action="mypageModifySave.php" name="mypageModifySave" method="post" enctype="multipart/form-data" onsubmit="return joinChecks()">
+                    <form action="mypageModifySave.php" name="mypageModifySave" method="post" enctype="multipart/form-data" onsubmit="return mypageChecks()">
                         <fieldset class="modify__left">
                             <img id="preview" src="../assets/profile/<?=$info['userImgSrc']?>" alt="마이페이지 프로필 사진" />
                             <legend class="blind">마이페이지 프로필 사진 변경</legend>
                             <label for="userImgSrc">프로필 사진 변경
                                 <input type="file" id="userImgSrc" name="userImgSrc" accept=".jpg, .jpeg, .png, .gif" onchange="loadFile(event)">
                             </label>
-                            <span>* jpg, jpeg, png, gif 파일만 넣을 수 있습니다. 이미지 용량은 1MB를 넘을 수 없습니다.</span>
+                            <span>* jpg, jpeg, png, gif 파일만 넣을 수 있습니다.<br>이미지 용량은 1MB를 넘을 수 없습니다.<br>이미지 가로, 세로 비율 1:1을 추천합니다.</span>
                         </fieldset>
                         <fieldset class="modify__right">
                             <legend class="blind">마이페이지 정보 수정 영역입니다.</legend>
                             <?php
                                 if($result && $result -> num_rows > 0){
-                                    echo "<div class='box'><label for='userName'>이름: </label><input name='userName' id='userName' type='text' value='".$info['userName']."' readonly></div>";
+                                    echo "<div class='box'><label for='userNameMy'>이름: </label><input name='userNameMy' id='userNameMy' type='text' value='".$info['userName']."' readonly></div>";
 
-                                    echo "<div class='box'><label for='userEmailMy'>이메일: </label><div class='check__wrap'><div class='input__wrap'><input name='userEmailMy' id='userEmailMy' type='email' placeholder='".$info['userEmail']."' required>";
+                                    echo "<div class='box'><label for='userEmailMy'>이메일: </label><div class='check__wrap'><div class='input__wrap'><input name='userEmailMy' id='userEmailMy' type='email' value='".$info['userEmail']."' required>";
                                     echo "<a href='#c' class='btnStyleM' onclick='myemailChecking()'>중복 확인</a></div>";
                                     echo "<p class='warning' id='userEmailMyComment'><!--이메일 검사--></p></div></div>";
 
-                                    echo "<div class='box'><label for='userNicknameMy'>닉네임: </label><div class='check__wrap'><div class='input__wrap'><input name='userNicknameMy' id='userNicknameMy' type='text' placeholder='".$info['userNickname']."' required>";
+                                    echo "<div class='box'><label for='userNicknameMy'>닉네임: </label><div class='check__wrap'><div class='input__wrap'><input name='userNicknameMy' id='userNicknameMy' type='text' value='".$info['userNickname']."' required>";
                                     echo "<a href='#c' class='btnStyleM' onclick='mynickChecking()'>중복 확인</a></div>";
                                     echo "<p class='warning' id='userNicknameMyComment'><!--닉네임 검사--></p></div></div>";
 
-                                    echo "<div class='box'><label for='userPhoneMy'>연락처: </label><div class='input__wrap2'><input name='userPhoneMy' id='userPhoneMy' type='text' placeholder='".$info['userPhone']."' required>";
+                                    echo "<div class='box'><label for='userPhoneMy'>연락처: </label><div class='input__wrap2'><input name='userPhoneMy' id='userPhoneMy' type='text' value='".$info['userPhone']."' required>";
                                     echo "<p class='warning' id='userPhoneMyComment'><!--연락처 검사--></p></div></div>";
                                     echo "<button type='submit'>수정 완료</button>";
                                 }
@@ -188,14 +188,14 @@
             }
         }
 
-        function joinChecks(){
+        function mypageChecks(){
             // 연락처 유효성 검사
             if($("#userPhoneMy").val() == ''){
                 $("#userPhoneMyComment").text("* 연락처를 입력해주세요!");
                 $("#userPhoneMy").focus();
                 return false;
             }
-            let getuserPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+            let getuserPhone = RegExp(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/);
             if(!getuserPhone.test($("#userPhoneMy").val())){
                 $("#userPhoneMyComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
                 $("#userPhoneMy").val('');
@@ -214,6 +214,9 @@
                 return false;
             }
         }
+
+        document.querySelector("#userEmailMy").addEventListener("focusout", myemailChecking);
+        document.querySelector("#userNicknameMy").addEventListener("focusout", mynickChecking);
 </script>
 </body>
 </html>

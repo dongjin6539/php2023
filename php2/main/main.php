@@ -48,117 +48,105 @@
         <section id="contents">
             <h2><a href="mainSection.php">운동 종류</a></h2>
             <div class="wrapper">
-              <div class="cols">
-                  <div class="col" ontouchstart="this.classList.toggle('hover');">
-                    <div class="container">
-                      <div class="front" style="background-image: url(../html/assets/img/content_01.png)">
-                        <div class="inner">
-                          <a href="mainSection.php#chest">
-                              <h3>가슴</h3>
-                              <em>Chest Exersise</em>
-                          </a>
+                <div class="cols">
+                    <div class="col" ontouchstart="this.classList.toggle('hover');" onclick="window.location.href = 'http:mainSection.php#chest'">
+                        <div class="container">
+                            <div class="front" style="background-image: url(../html/assets/img/content_01.png)">
+                                <div class="inner">
+                                    <h3>가슴</h3>
+                                    <em>Chest Exersise</em>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <h3>가슴</h3>
+                                    <em>Chest Exersise</em>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="back">
-                        <div class="inner">
-                            <h3>가슴</h3>
-                            <em>Chest Exersise</em>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <div class="col" ontouchstart="this.classList.toggle('hover');">
-                    <div class="container">
-                      <div class="front" style="background-image: url(../html/assets/img/content_02.png)">
-                        <div class="inner">
-                          <a href="mainSection.php#back">
-                              <h3>등</h3>
-                              <em>Back Exersise</em>
-                          </a>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');" onclick="window.location.href = 'http:mainSection.php#back'">
+                        <div class="container">
+                            <div class="front" style="background-image: url(../html/assets/img/content_02.png)">
+                                <div class="inner">
+                                    <h3>등</h3>
+                                    <em>Back Exersise</em>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <h3>등</h3>
+                                    <em>Back Exersise</em>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="back">
-                        <div class="inner">
-                            <h3>등</h3>
-                            <em>Back Exersise</em>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <div class="col" ontouchstart="this.classList.toggle('hover');">
-                    <div class="container">
-                      <div class="front" style="background-image: url(../html/assets/img/content_03.png)">
-                        <div class="inner">
-                          <a href="mainSection.php#shoulder">
-                              <h3>어깨</h3>
-                              <em>Shoulder Exersise</em>
-                          </a>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');" onclick="window.location.href = 'http:mainSection.php#leg'">
+                        <div class="container">
+                            <div class="front" style="background-image: url(../html/assets/img/content_06.png)">
+                                <div class="inner">
+                                    <h3>하체</h3>
+                                    <em>Lower Body</em>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <h3>하체</h3>
+                                    <em>Lower Body</em>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="back">
-                        <div class="inner">
-                            <h3>어깨</h3>
-                            <em>Shoulder Exersise</em>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <div class="col" ontouchstart="this.classList.toggle('hover');">
-                    <div class="container">
-                      <div class="front" style="background-image: url(../html/assets/img/content_04.png)">
-                        <div class="inner">
-                          <a href="mainSection.php#leg">
-                              <h3>하체</h3>
-                              <em>Lower Body</em>
-                          </a>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');" onclick="window.location.href = 'http:mainSection.php#shoulder'">
+                        <div class="container">
+                            <div class="front" style="background-image: url(../html/assets/img/content_03.png)">
+                                <div class="inner">                                
+                                    <h3>어깨</h3>
+                                    <em>Shoulder Exersise</em>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <h3>어깨</h3>
+                                    <em>Shoulder Exersise</em>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="back">
-                        <div class="inner">
-                            <h3>하체</h3>
-                            <em>Lower Body</em>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <div class="col" ontouchstart="this.classList.toggle('hover');">
-                    <div class="container">
-                      <div class="front" style="background-image: url(../html/assets/img/content_05.png">
-                        <div class="inner">
-                          <a href="mainSection.php#arm">
-                              <h3>팔</h3>
-                              <em>Arm Exersise</em>
-                          </a>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');" onclick="window.location.href = 'http:mainSection.php#arm'">
+                        <div class="container">
+                            <div class="front" style="background-image: url(../html/assets/img/content_04.png">
+                                <div class="inner">
+                                    <h3>팔</h3>
+                                    <em>Arm Exersise</em>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <h3>팔</h3>
+                                    <em>Arm Exersise</em>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="back">
-                        <div class="inner">
-                            <h3>팔</h3>
-                            <em>Arm Exersise</em>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <div class="col" ontouchstart="this.classList.toggle('hover');">
-                    <div class="container">
-                      <div class="front" style="background-image: url(../html/assets/img/content_06.png)">
-                        <div class="inner">
-                          <a href="mainSection.php#abs">
-                              <h3>복근</h3>
-                              <em>Sit-Up</em>
-                          </a>
+                    <div class="col" ontouchstart="this.classList.toggle('hover');" onclick="window.location.href = 'http:mainSection.php#abs'">
+                        <div class="container">
+                            <div class="front" style="background-image: url(../html/assets/img/content_05.png)">
+                                <div class="inner">
+                                    <h3>복근</h3>
+                                    <em>Sit-Up</em>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <h3>복근</h3>
+                                    <em>Sit-Up</em>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                      <div class="back">
-                        <div class="inner">
-                            <h3>복근</h3>
-                            <em>Sit-Up</em>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-          </div>
-       </div>
+                </div>
+            </div>
         </section>
         <!-- contents -->
         <section id="sub">

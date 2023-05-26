@@ -174,14 +174,15 @@
         echo "<li><a href='blogSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page=1'>처음으로</a></li>";
         $prevPage = $page - 1;
         echo "<li><a href='blogSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page={$prevPage}'>이전</a></li>";
+        
     }
 
     // 페이지
     for($i=$startPage; $i<=$endPage; $i++){
-        if($page > 0 && $page <= $blogTotalCount){
+        if($page > 0 && $page <= $boardTotalCount){
             $active = "";
             if($i == $page) $active = "active";
-            echo "<li class='{$active}'><a href='blog.php?page={$i}'>{$i}</a></li>";
+            echo "<li class='{$active}'><a href='blogSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page={$i}'>{$i}</a></li>";
         }        
     }
 

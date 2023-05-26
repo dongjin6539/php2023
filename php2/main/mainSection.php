@@ -474,12 +474,12 @@
         // 호버 효과
         const cardBody = document.querySelectorAll('.card__body');
         cardBody.forEach(cardBody => {
-            const btn = cardBody.querySelector('.btn');
-            btn.addEventListener('mouseover', () => {
+            // const btn = cardBody.querySelector('.btn');
+            cardBody.addEventListener('mouseover', () => {
                 // cardBody.querySelector('.card__body').style.backgroundColor = '#7d92b7';
                 gsap.to(cardBody, 0.5, {backgroundColor : '#7d92b7'})
             });
-            btn.addEventListener('mouseout', () => {
+            cardBody.addEventListener('mouseout', () => {
                 // cardBody.querySelector('.card__body').style.backgroundColor = '#2D303D';
                 gsap.to(cardBody, 0.5, {backgroundColor : '#2D303D'})
             });

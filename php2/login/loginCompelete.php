@@ -11,7 +11,7 @@
     }
 
     // 데이터 가져오기 --> 유효성 검사  -->  데이터 조회  --> 로그인
-    $sql = "SELECT memberID, userEmail, userName, userPass FROM userMembers WHERE userEmail = '$userEmail' AND userPass = '$userPass'";
+    $sql = "SELECT * FROM userMembers WHERE userEmail = '$userEmail' AND userPass = '$userPass'";
 
     // 결과 반환
     $result = $connect -> query($sql);
@@ -36,6 +36,7 @@
             $_SESSION['memberID'] = $info['memberID'];
             $_SESSION['userEmail'] = $info['userEmail'];
             $_SESSION['userName'] = $info['userName'];
+            $_SESSION['userNickname'] = $info['userNickname'];
             // echo "<script>alert('환영합니다. {$userName}님');</script>";
             echo "<script>location.href = '../main/main.php'</script>";
         }

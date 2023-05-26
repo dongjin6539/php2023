@@ -124,6 +124,7 @@
     background-color: #fff;
     border-radius: 50%;
     transition: all 0.3s;
+    object-fit: cover;
 }
 #nav .nav__wrap .profile:hover {
     transform: scale(1.05);

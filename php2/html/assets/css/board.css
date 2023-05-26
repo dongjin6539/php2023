@@ -137,7 +137,7 @@ main {
 }  
 .board__contents {
     margin: 20px;
-    height: 600px;
+    /* height: 600px; */
     line-height: 2;
 }
 .board__btn {
@@ -238,16 +238,13 @@ main {
     margin-bottom: 40px;
     margin-top: 30px;
 }
-.comment__view .avatar {
+.comment__view .avatar img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    overflow: hidden;
     border: 2px solid #a4a4a4;
     margin-right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    object-fit: cover;
 }
 .comment__view .info {
     width: calc(100% - 60px);

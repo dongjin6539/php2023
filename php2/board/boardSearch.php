@@ -17,17 +17,17 @@
     $searchKeyword = $connect -> real_escape_string(trim($searchKeyword));
     $searchOption = $connect -> real_escape_string(trim($searchOption));
 
-    $sql = "SELECT b.uBoardID , b.uBoardTitle, b.uBoardContents, m.userName, b.uBoardRegTime, b.uBoardView FROM uBoard b JOIN userMembers m ON(b.memberID = m.memberID) ";
+    $sql = "SELECT * FROM uBoard ";
 
     switch($searchOption){
         case "title":
-            $sql .= "WHERE b.uBoardTitle LIKE '%{$searchKeyword}%' ORDER BY uBoardID DESC ";
+            $sql .= "WHERE uBoardTitle LIKE '%{$searchKeyword}%' ORDER BY uBoardID DESC ";
             break;
         case "content":
-            $sql .= "WHERE b.uBoardContents LIKE '%{$searchKeyword}%' ORDER BY uBoardID DESC ";
+            $sql .= "WHERE uBoardContents LIKE '%{$searchKeyword}%' ORDER BY uBoardID DESC ";
             break;
         case "name":
-            $sql .= "WHERE m.userName LIKE '%{$searchKeyword}%' ORDER BY uBoardID DESC ";
+            $sql .= "WHERE uBoardAuthor LIKE '%{$searchKeyword}%' ORDER BY uBoardID DESC ";
             break;
     }
     $result = $connect -> query($sql);
@@ -118,7 +118,7 @@
                 echo "<tr>";
                 echo "<td>".$info['uBoardID']."</td>";
                 echo "<td><a href='boardView.php?uBoardID={$info['uBoardID']}'>".$info['uBoardTitle']."</a></td>";
-                echo "<td>".$info['userName']."</td>";
+                echo "<td>".$info['uBoardAuthor']."</td>";
                 echo "<td>".date('Y-m-d', $info['uBoardRegTime'])."</td>";
                 echo "<td>".$info['uBoardView']."</td>";
                 echo "</tr>";

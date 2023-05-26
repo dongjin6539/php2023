@@ -31,10 +31,11 @@
     text-align: center;
 }
 .section__left img {
-    width: 80%;
-    height: 80%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
     margin: 30px 0;
-    border-radius: 10px;
+    border-radius: 50%;
 }
 .section__left a {
     display: block;

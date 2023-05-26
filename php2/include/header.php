@@ -214,7 +214,7 @@
             </div>
         </div>
         <div class="login__form">
-            <form action="login__popup4" name="login__popup4" method="post" onsubmit="return joinChecks()">
+            <form action="#" name="joinClear" method="post" onsubmit="return joinChecks()">
                 <fieldset>
                     <legend class="blind">회원가입</legend>
                     <div class="form1">
@@ -269,7 +269,7 @@
 <!-- //회원가입 -->
 
 <!-- 회원가입 완료 -->
-<div class="login__popup4">
+<!-- <div class="login__popup4">
     <div class="login__wrap">
         <div class="login__title">
             <div class="login__logo">
@@ -282,7 +282,7 @@
         </div>
         <a href="../main/main.php" class="btnStyle atag">메인</a>
     </div>
-</div>
+</div> -->
 <!-- //회원가입 완료 -->
 
 <!-- 아이디 찾기 -->
@@ -398,10 +398,10 @@
     });
 
     // 회원가입
-    document.querySelector(".login__wrap .join2").addEventListener("click", () => {
-        document.querySelector(".login__popup3").style.display = "none";
-        document.querySelector(".login__popup4").style.display = "block";
-    });
+    // document.querySelector(".login__wrap .join2").addEventListener("click", () => {
+    //     document.querySelector(".login__popup3").style.display = "none";
+    //     document.querySelector(".login__popup4").style.display = "block";
+    // });
 
     // 아이디 찾기
     document.querySelector(".login__list .idFind").addEventListener("click", () => {
@@ -645,9 +645,7 @@
         if($("#userPass").val() !== $("#userPassC").val()){
             $("#userPassCComment").text("* 비밀번호가 일치하지 않습니다.");
             return false;
-        }
-
-        
+        }        
 
         // 연락처 유효성 검사
         if($("#userPhone").val() == ''){
@@ -656,13 +654,14 @@
             return false;
         }
         
-        let getuserPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+        let getuserPhone = RegExp(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/);
         if(!getuserPhone.test($("#userPhone").val())){
             $("#userPhoneComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
             $("#userPhone").val('');
             $("#userPhone").focus();
             return false;
         }
+        return true;
     }
     // <!-- userEmail, userName, userNickname, userPass, userPhone , 성별 -->
     // <!-- 이메일, 이름, 닉네임, 비밀번호, 비밀번호 확인, 연락처 , 성별 -->
@@ -670,46 +669,36 @@
 
 <script>
     // 회원가입 완료
-    // Ajax 요청 함수
-    function registerUser() {
-        // 회원가입 폼 데이터 가져오기
-        var formData = {
-            userEmail: $('#userEmail').val(),
-            userName: $('#userName').val(),
-            userNickname: $('#userNickname').val(),
-            userPass: $('#userPass').val(),
-            userPhone: $('#userPhone').val(),
-            userGender: $('input[name="userGender"]:checked').val()
-        };
-
-        // Ajax 요청 설정
-        $.ajax({
-            url: '../join/register.php',
-            type: 'POST',
-            data: JSON.stringify(formData),
-            contentType: 'application/json',
-            success: function(response) {
-            if (response.success) {
-                // 회원가입 성공
-                $('.login__end .desc').text('회원가입이 완료되었습니다. 감사합니다.');
-            } else {
-                // 회원가입 실패
-                $('.login__end .desc').text('회원 정보가 잘못 입력되었습니다. 다시 입력해주세요.');
-            }
-            },
-            error: function() {
-            // 요청 실패
-                $('.login__end .desc').text('오류가 발생했습니다. 다시 시도해주세요.');
-            }
-        });
-    }
-
-    // 회원가입 폼 제출 시 Ajax 요청 수행
-    $('#join__confirm').click(function(event) {
-        event.preventDefault();
-        registerUser();
+    $("#join__confirm").click(function(event) {
+        
+        if (isEmailCheck && isNickCheck && joinChecks()) {
+            let userEmail = $("#userEmail").val();
+            let userName = $("#userName").val();
+            let userNickname = $("#userNickname").val();
+            let userPass = $("#userPass").val();
+            let userPhone = $("#userPhone").val();
+            let userGender = $('input[name="userGender"]:checked').val();
+            event.preventDefault();
+            $.ajax({
+                url: "../join/joinClear.php", // 비밀번호 찾기 로직이 있는 PHP 페이지의 URL로 대체해야 함
+                type: "POST",
+                data: {
+                    "userEmail": userEmail,
+                    "userName": userName,
+                    "userNickname": userNickname,
+                    "userPass": userPass,
+                    "userPhone": userPhone,
+                    "userGender": userGender
+                },
+                success: function(response) {
+                    
+                    $(".login__popup3 .login__wrap").html(response); // 비밀번호 찾기 결과를 표시할 영역에 결과를 삽입
+                }
+            });
+        }
     });
 </script>
+
 
 <script>
     // 아이디 찾기 유효성 검사
@@ -735,7 +724,7 @@
             return false;
         }
         
-        let getuserPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+        let getuserPhone = RegExp(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/);
         if(!getuserPhone.test($("#userPhone").val())){
             $("#userPhoneComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
             $("#userPhone").val('');
@@ -839,7 +828,7 @@
             return false;
         }
         
-        let getuserPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+        let getuserPhone = RegExp(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/);
         if(!getuserPhone.test($("#userPhone").val())){
             $("#userPhoneComment").text("* 휴대폰 번호가 정확하지 않습니다.(000-0000-000)");
             $("#userPhone").val('');

@@ -86,7 +86,7 @@
                     <legend class="blind">게시글 작성하기</legend>
                     <div>
                         <label for="uBoardTitle">제목</label>
-                        <input type="text" id="uBoardTitle" name="uBoardTitle" class="inputStyle3">
+                        <input type="text" id="uBoardTitle" name="uBoardTitle" class="inputStyle3" required>
                     </div>
                     <div>
                         <label for="uBoardContents">내용</label>

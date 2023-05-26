@@ -2,7 +2,7 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    $userName = $_POST['userName'];
+    $userName = $_POST['userNameMy'];
     $userEmail = $_POST['userEmailMy'];
     $userNickname = $_POST['userNicknameMy'];
     $userPhone = $_POST['userPhoneMy'];
