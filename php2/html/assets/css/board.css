@@ -120,6 +120,7 @@ main {
     width: 50%;
     height: 50vh;
     padding: 20px;
+    object-fit: cover;
 }
 .board__title {
     border-bottom: 1px solid var(--color__white);

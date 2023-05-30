@@ -39,14 +39,7 @@
                 <div class="board__search">
                     <form action="boardSearch.php" name="boardSearch" method="get">
                         <fieldset>
-                            <legend class="blind">게시판 검색 영역</legend>
-                            <input type="search" placeholder="검색어를 입력하세요!">
-                            <select name="searchOption" id="searchOption">
-                                <option value="title">제목</option>
-                                <option value="content">내용</option>
-                                <option value="name">등록자</option>
-                            </select>
-                            <button type="submit" class="btnStyle4">검색</button>
+                            <legend class="blind">작성한 게시글</legend>
                             <a href="mypageBoardWrite.php" class="btnStyle4">글쓰기</a>
                         </fieldset>
                     </form>
@@ -87,7 +80,7 @@
     $viewNum = 10; // 한 페이지에 보여줄 개시글 개수
     $viewLimit = ($viewNum * $page) - $viewNum;
     $memberID = $_SESSION['memberID'];
-    $sql = "SELECT b.uBoardID, b.uBoardTitle, m.userName, b.uBoardRegTime, b.uBoardView FROM uBoard b JOIN userMembers m ON(b.memberID = m.memberID) WHERE b.memberID = {$memberID} ORDER BY uBoardID DESC LIMIT {$viewLimit}, {$viewNum}";
+    $sql = "SELECT b.uBoardID, b.uBoardTitle, m.userNickname, b.uBoardRegTime, b.uBoardView FROM uBoard b JOIN userMembers m ON(b.memberID = m.memberID) WHERE b.memberID = {$memberID} ORDER BY uBoardID DESC LIMIT {$viewLimit}, {$viewNum}";
     $result = $connect -> query($sql);
 
     // echo  "<pre>";
@@ -105,7 +98,7 @@
                 echo "<tr>";
                 echo "<td>".$info['uBoardID']."</td>";
                 echo "<td><a href='mypageBoardView.php?uBoardID={$info['uBoardID']}'>".$info['uBoardTitle']."</a></td>";
-                echo "<td>".$info['userName']."</td>";
+                echo "<td>".$info['userNickname']."</td>";
                 echo "<td>".date('Y-m-d', $info['uBoardRegTime'])."</td>";
                 echo "<td>".$info['uBoardView']."</td>";
                 echo "</tr>";

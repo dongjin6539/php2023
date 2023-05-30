@@ -57,7 +57,7 @@
         $sql = "UPDATE uBoard SET uBoardView = uBoardView + 1 WHERE uBoardID = {$uBoardID}";
         $connect -> query($sql);
 
-        $sql = "SELECT b.uBoardContents, b.uBoardTitle, m.userName, b.uBoardRegTime, b.uBoardView FROM uBoard b JOIN userMembers m ON(m.memberID = b.memberID) WHERE b.uBoardID = {$uBoardID}";
+        $sql = "SELECT b.uBoardContents, b.uBoardTitle, m.userNickname, b.uBoardRegTime, b.uBoardView FROM uBoard b JOIN userMembers m ON(m.memberID = b.memberID) WHERE b.uBoardID = {$uBoardID}";
         $result = $connect -> query($sql);
 
         if($result && $result->num_rows > 0){

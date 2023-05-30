@@ -144,8 +144,8 @@ if ($result && $result -> num_rows > 0) {
 
     // 처음으로 + 이전
     if($page != 1){
-        echo "<li><a href='blog.php?page=1'>처음으로</a></li>";
         $prevPage = $page - 1;
+        echo "<li><a href='blog.php?page=1'>처음으로</a></li>";
         echo "<li><a href='blog.php?page={$prevPage}'>이전</a></li>";
     }
 

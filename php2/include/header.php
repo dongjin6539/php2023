@@ -2,13 +2,9 @@
     <h1><a href="../main/main.php">헬드백</a></h1>
     <div class="header__login">
       <?php if(isset($_SESSION['memberID'])){
-            $memberID = $_SESSION['memberID'];
-            $sql = "SELECT * FROM userMembers WHERE memberID = {$memberID}";
-            $result = $connect -> query($sql);
-            $info = $result -> fetch_array(MYSQLI_ASSOC);
         ?>
         <ul>
-            <li><a href="#c" class="member"><?= $info['userNickname'] ?> 회원님</a></li>
+            <li><a href="#c" class="member"><?= $_SESSION['userNickname'] ?> 회원님</a></li>
         </ul>
       <?php } ?>
     </div>
@@ -877,4 +873,7 @@
             });
         };
     });
+
+    document.querySelector("#userEmail").addEventListener("focusout", emailChecking);
+    document.querySelector("#userNickname").addEventListener("focusout", nickChecking);
 </script>

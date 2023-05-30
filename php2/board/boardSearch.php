@@ -169,8 +169,8 @@
 
     // 처음으로, 이전
     if($page !== 1 && $page <= $boardTotalCount){
-        echo "<li><a href='boardSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page=1'>처음으로</a></li>";
         $prevPage = $page - 1;
+        echo "<li><a href='boardSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page=1'>처음으로</a></li>";
         echo "<li><a href='boardSearch.php?searchKeyword={$searchKeyword}&searchOption={$searchOption}&page={$prevPage}'>이전</a></li>";
     }
 
