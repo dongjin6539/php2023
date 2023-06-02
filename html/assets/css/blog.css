@@ -34,6 +34,11 @@
     color: var(--color__white);
     cursor: grab;
 } 
+.blog__wrap h2:hover a {
+    background-color: var(--color__black);
+    color: var(--color__white);
+    cursor: grab;
+} 
 .blog__aside {
     padding: 0 20px 20px 20px;
 }
