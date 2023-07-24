@@ -9,18 +9,18 @@
     } else {
         $memberID = 0;
     }
-    if(isset($_GET['blogID'])){
-        $blogID = $_GET['blogID'];
+    if(isset($_GET['uBlogID'])){
+        $uBlogID = $_GET['uBlogID'];
     } else {
         Header("Location: blog.php");
     }
     // 블로그 뷰 + 1
-    $sql = "UPDATE blog SET blogView = blogView + 1 WHERE blogID = {$blogID}";
+    $sql = "UPDATE uBlog SET uBlogView = uBlogView + 1 WHERE uBlogID = {$uBlogID}";
     $connect -> query($sql);
-    $blogSql = "SELECT * FROM blog WHERE blogID = '$blogID'";
-    $blogResult = $connect -> query($blogSql);
-    $blogInfo = $blogResult -> fetch_array(MYSQLI_ASSOC);
-    $commentSql = "SELECT * FROM blogComment WHERE blogID = '$blogID' AND commentDelete = '0' ORDER BY commentID DESC";
+    $uBlogSql = "SELECT * FROM uBlog WHERE uBlogID = '$uBlogID'";
+    $uBlogResult = $connect -> query($uBlogSql);
+    $uBlogInfo = $uBlogResult -> fetch_array(MYSQLI_ASSOC);
+    $commentSql = "SELECT * FROM uBlogComment WHERE uBlogID = '$uBlogID' AND commentDelete = '0' ORDER BY commentID DESC";
     $commentResult = $connect -> query($commentSql);
     $commentInfo = $commentResult -> fetch_array(MYSQLI_ASSOC);
 ?>
@@ -39,12 +39,12 @@
     <?php include "../include/header.php" ?>
     <!-- //header -->
     <main id="main" class="container">
-        <div class="blog__title" style="background-image:url(../assets/blog/<?=$blogInfo['blogImgFile']?>)">
-            <span class="cate"><?=$blogInfo['blogCategory']?></span>
-            <h2 class="title"><?=$blogInfo['blogTitle']?></h2>
+        <div class="blog__title" style="background-image:url(../assets/blog/<?=$uBlogInfo['uBlogImgFile']?>)">
+            <span class="cate"><?=$uBlogInfo['uBlogCategory']?></span>
+            <h2 class="title"><?=$uBlogInfo['uBlogTitle']?></h2>
             <div class="info">
-                <span class="author"><?=$blogInfo['blogAuthor']?></span>
-                <span class="date"><?=date('Y-m-d', $blogInfo['blogRegTime'])?></span>
+                <span class="author"><?=$uBlogInfo['uBlogAuthor']?></span>
+                <span class="date"><?=date('Y-m-d', $uBlogInfo['uBlogRegTime'])?></span>
                 <div class="modify">
                     <a href="#">수정</a>
                     <a href="#">삭제</a>
@@ -55,8 +55,8 @@
         <div class="blog__inner">
             <div class="left mt70">
                 <div class="blog__contents">
-                    <h3><?=$blogInfo['blogTitle']?></h3>
-                    <?=$blogInfo['blogContents']?>
+                    <h3><?=$uBlogInfo['uBlogTitle']?></h3>
+                    <?=$uBlogInfo['uBlogContents']?>
                 </div>
             </div>
             <div class="right mt70">
@@ -229,7 +229,7 @@
         });
         // 댓글 쓰기 버튼
         $("#commentWriteBtn").click(function(){
-            $("#blogComment").focus();
+            $("#uBlogComment").focus();
             if($("#commentWrite").val() == ""){
                 alert("댓글을 작성해주세요!");
                 $("#commentWrite").focus();
@@ -239,7 +239,7 @@
                     method: "POST",
                     dataType: "json",
                     data: {
-                        "blogID": <?=$blogID?>,
+                        "uBlogID": <?=$uBlogID?>,
                         "memberID": <?=$memberID?>,
                         "name": $("#commentName").val(),
                         "pass": $("#commentPass").val(),

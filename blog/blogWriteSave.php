@@ -3,44 +3,44 @@
     include "../connect/session.php";
 
     $memberID = $_SESSION['memberID'];
-    $blogAuthor = $_SESSION['youName'];
+    $uBlogAuthor = $_SESSION['youName'];
 
-    $blogCategory = $_POST['blogCategory'];
-    $blogTitle = $_POST['blogTitle'];
-    // $blogTitle = htmlspecialchars($_POST['blogTitle'], ENT_QUOTES, 'UTF-8');
-    // $blogContents = nl2br($_POST['blogContents']);
-    $blogContents = htmlspecialchars($_POST['blogContents'], ENT_QUOTES, 'UTF-8');
-    $blogContents = nl2br($blogContents);
+    $uBlogCategory = $_POST['uBlogCategory'];
+    $uBlogTitle = $_POST['uBlogTitle'];
+    // $uBlogTitle = htmlspecialchars($_POST['uBlogTitle'], ENT_QUOTES, 'UTF-8');
+    // $uBlogContents = nl2br($_POST['uBlogContents']);
+    $uBlogContents = htmlspecialchars($_POST['uBlogContents'], ENT_QUOTES, 'UTF-8');
+    $uBlogContents = nl2br($uBlogContents);
     
 
-    $blogView = 1;
-    $blogLike = 0;
+    $uBlogView = 1;
+    $uBlogLike = 0;
     $regTime = time();
 
-    $blogImgFile = $_FILES['blogFile'];
-    $blogImgSize = $_FILES['blogFile']['size'];
-    $blogImgType = $_FILES['blogFile']['type'];
-    $blogImgName = $_FILES['blogFile']['name'];
-    $blogImgTmp = $_FILES['blogFile']['tmp_name'];
+    $uBlogImgFile = $_FILES['uBlogFile'];
+    $uBlogImgSize = $_FILES['uBlogFile']['size'];
+    $uBlogImgType = $_FILES['uBlogFile']['type'];
+    $uBlogImgName = $_FILES['uBlogFile']['name'];
+    $uBlogImgTmp = $_FILES['uBlogFile']['tmp_name'];
     
     // echo "<pre>";
-    // var_dump($blogImgFile);
+    // var_dump($uBlogImgFile);
     // echo "</pre>";
 
     // 이미지 파일명 확인
-    if($blogImgType){
-        $fileTypeExtension = explode("/", $blogImgType);
+    if($uBlogImgType){
+        $fileTypeExtension = explode("/", $uBlogImgType);
         $fileType = $fileTypeExtension[0];  // image
         $fileExtension = $fileTypeExtension[1]; // jpeg
         
         // 이미지 타입 확인
         if($fileType == "image"){
             if($fileExtension == "jpg" || $fileExtension == "jpeg" || $fileExtension == "png" || $fileExtension == "gif"){
-                $blogImgDir = "../assets/blog/";
-                $blogImgName = "Img_".time().rand(1, 99999)."."."{$fileExtension}";
+                $uBlogImgDir = "../assets/blog/";
+                $uBlogImgName = "Img_".time().rand(1, 99999)."."."{$fileExtension}";
 
                 echo "이미지 파일이 맞습니다.";
-                $sql = "INSERT INTO blog(memberID, blogTitle, blogContents, blogCategory, blogAuthor, blogView, blogLike, blogImgFile, blogImgSize, blogDelete, blogRegTime) VALUES('$memberID', '$blogTitle', '$blogContents', '$blogCategory', '$blogAuthor', '$blogView', '$blogLike', '$blogImgName', '$blogImgSize', '0', '$regTime')";
+                $sql = "INSERT INTO uBlog(memberID, uBlogTitle, uBlogContents, uBlogCategory, uBlogAuthor, uBlogView, uBlogLike, uBlogImgFile, uBlogImgSize, uBlogDelete, uBlogRegTime) VALUES('$memberID', '$uBlogTitle', '$uBlogContents', '$uBlogCategory', '$uBlogAuthor', '$uBlogView', '$uBlogLike', '$uBlogImgName', '$uBlogImgSize', '0', '$regTime')";
             } else {
                 echo "<script>alert('이미지 파일이 아닙니다.')</script>";
             }
@@ -49,16 +49,16 @@
         }
     } else {
         echo "이미지 파일을 첨부하지 않았습니다.";
-    $sql = "INSERT INTO blog(memberID, blogTitle, blogContents, blogCategory, blogAuthor, blogView, blogLike, blogImgFile, blogImgSize, blogDelete, blogRegTime) VALUES('$memberID', '$blogTitle', '$blogContents', '$blogCategory', '$blogAuthor', '$blogView', '$blogLike', 'Img_default.jpg', '$blogImgSize', '0', '$regTime')";
+    $sql = "INSERT INTO uBlog(memberID, uBlogTitle, uBlogContents, uBlogCategory, uBlogAuthor, uBlogView, uBlogLike, uBlogImgFile, uBlogImgSize, uBlogDelete, uBlogRegTime) VALUES('$memberID', '$uBlogTitle', '$uBlogContents', '$uBlogCategory', '$uBlogAuthor', '$uBlogView', '$uBlogLike', 'Img_default.jpg', '$uBlogImgSize', '0', '$regTime')";
     }
 
     // 이미지 사이즈 확인
-    if($blogImgSize > 10000000){
+    if($uBlogImgSize > 10000000){
         echo "<script>alert('이미지 파일 용량이 1MG를 초과했습니다.')</script>";
     }
 
     $result = $connect -> query($sql);
-    $result = move_uploaded_file($blogImgTmp, $blogImgDir.$blogImgName);
+    $result = move_uploaded_file($uBlogImgTmp, $uBlogImgDir.$uBlogImgName);
 
     Header("Location: blog.php");
 ?>

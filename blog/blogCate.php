@@ -8,7 +8,7 @@
         Header("Location: blog.php");   
     }
 
-    $categorySql = "SELECT * FROM blog WHERE blogDelete = 0 AND blogCategory = '$category' ORDER BY blogID DESC";
+    $categorySql = "SELECT * FROM uBlog WHERE uBlogDelete = 0 AND uBlogCategory = '$category' ORDER BY uBlogID DESC";
     $categoryResult = $connect -> query($categorySql);
     $categoryInfo = $categoryResult -> fetch_array(MYSQLI_ASSOC);
     $categoryCount = $categoryResult -> num_rows;
@@ -39,8 +39,8 @@
                 <h2><?= $category?></h2>
                 <p><?= $category?>와 관련된 글이 <?= $categoryCount?>개 있습니다.</p>
             <?php } else {?>
-                <h2><?= $categoryInfo['blogCategory']?></h2>
-                <p><?= $categoryInfo['blogCategory']?>와 관련된 글이 <?= $categoryCount?>개 있습니다.</p>
+                <h2><?= $categoryInfo['uBlogCategory']?></h2>
+                <p><?= $categoryInfo['uBlogCategory']?>와 관련된 글이 <?= $categoryCount?>개 있습니다.</p>
             <?php } ?>
             <div class="search">
                 <form action="#" name="#" method="post">
@@ -59,16 +59,16 @@
             <div class="left mt50">   
             <div class="blog__wrap">
                 <div class="cards__inner col2 row line3">
-<?php foreach($categoryResult as $blog){ ?>
+<?php foreach($categoryResult as $uBlog){ ?>
     <div class="card">
         <figure class="card__img">
-            <a href="blogView.php?blogID=<?= $blog['blogID']?>&category=<?= $blog['blogCategory']?>">
-                <img src="../assets/blog/<?= $blog['blogImgFile'] ?>" alt="<?= $blog['blogTitle'] ?>">
+            <a href="blogView.php?uBlogID=<?= $uBlog['uBlogID']?>&category=<?= $uBlog['uBlogCategory']?>">
+                <img src="../assets/blog/<?= $uBlog['uBlogImgFile'] ?>" alt="<?= $uBlog['uBlogTitle'] ?>">
             </a>
         </figure>
         <div class="card__title">
-            <h3><a href="blogView.php?blogID=<?= $blog['blogID']?>"><?= $blog['blogTitle'] ?></a></h3>
-            <p><?= htmlspecialchars_decode($blog['blogContents']) ?></p>
+            <h3><a href="blogView.php?uBlogID=<?= $uBlog['uBlogID']?>"><?= $uBlog['uBlogTitle'] ?></a></h3>
+            <p><?= htmlspecialchars_decode($uBlog['uBlogContents']) ?></p>
         </div>
     </div>
 <?php } ?>

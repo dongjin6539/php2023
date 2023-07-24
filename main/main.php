@@ -66,98 +66,46 @@
                 <h2><a href="../blog/blog.php">Blog</a></h2>
                 <div class="cards__inner">
 <?php
-    $sql = "SELECT * FROM blog WHERE blogDelete = 0 ORDER BY blogID DESC LIMIT 12";
+    $sql = "SELECT * FROM uBlog WHERE uBlogDelete = 0 ORDER BY uBlogID DESC LIMIT 8";
     $result = $connect -> query($sql);
 ?>
 
-<?php foreach($result as $blog){ ?>
+<?php foreach($result as $uBlog){ ?>
     <div class="card">
         <figure class="card__img">
-                <a href="../blog/blogView.php?blogID=<?= $blog['blogID']?>&category=<?= $blog['blogCategory']?>">
-                <img src="../assets/blog/<?= $blog['blogImgFile'] ?>" alt="<?= $blog['blogTitle'] ?>">
+                <a href="../blog/blogView.php?uBlogID=<?= $uBlog['uBlogID']?>&category=<?= $uBlog['uBlogCategory']?>">
+                <img src="../assets/blog/<?= $uBlog['uBlogImgFile'] ?>" alt="<?= $uBlog['uBlogTitle'] ?>">
             </a>
         </figure>
         <div class="card__title">
-            <h3><?= $blog['blogTitle'] ?></h3>
-            <p><?= htmlspecialchars_decode($blog['blogContents']) ?></p>
+            <h3><?= $uBlog['uBlogTitle'] ?></h3>
+            <p><?= htmlspecialchars_decode($uBlog['uBlogContents']) ?></p>
         </div>                        
         <div class="card__info">
             <a href="#" class="more">더보기</a href="#">
         </div>
     </div>
 <?php } ?>
-                    <!-- <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog01.jpg, ../assets/img/blog01@2x.jpg 2x, ../assets/img/blog01@3x.jpg 3x" />
-                            <img src="../assets/img/blog01.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>컴퓨터 과학 기초 지식 습득</h3>
-                            <p>프로그래밍 언어를 배우기 전에 컴퓨터 과학 기초 지식을 습득하는 것이 중요합니다. 이에는 컴퓨터의 작동 원리, 알고리즘, 데이터 구조 등이 포함됩니다. 이러한 기초적인 지식을 습득하면 프로그래밍 언어를 배우는데 큰 도움이 됩니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div> -->
-                    <!-- <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog02.jpg, ../assets/img/blog02@2x.jpg 2x, ../assets/img/blog02@3x.jpg 3x" />
-                            <img src="../assets/img/blog02.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>프로그래밍 언어 선택</h3>
-                            <p>코딩을 배우는 가장 일반적인 방법은 프로그래밍 언어를 배우는 것입니다. 많은 프로그래밍 언어 중에서는 Python, Java, C++, JavaScript 등이 널리 사용됩니다. 이 중에서 자신이 배우고 싶은 언어를 선택하고 해당 언어의 문법과 기초 지식을 습득하는 것이 좋습니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog03.jpg, ../assets/img/blog03@2x.jpg 2x, ../assets/img/blog03@3x.jpg 3x" />
-                            <img src="../assets/img/blog03.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>온라인 자료 활용</h3>
-                            <p>온라인에는 다양한 코딩 학습 자료가 있습니다. 강의, 튜토리얼, 문제 풀이 사이트 등을 활용하여 코딩을 배울 수 있습니다. 각 언어별로 제공되는 공식 문서와 레퍼런스를 참고하여 배우는 것도 좋은 방법입니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog04.jpg, ../assets/img/blog04@2x.jpg 2x, ../assets/img/blog04@3x.jpg 3x" />
-                            <img src="../assets/img/blog04.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>코딩 연습</h3>
-                            <p>코딩을 배운 후에는 많은 연습이 필요합니다. 간단한 예제부터 시작하여 점점 어려운 문제를 해결해 나가는 것이 좋습니다. 이를 통해 코딩 스킬을 향상시킬 수 있습니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <div class="blog__wrap bmStyle">
                 <h2><a href="">Popular Blog</a></h2>
                 <div class="cards__inner col2 line2">
 <?php
-    $sql = "SELECT * FROM blog WHERE blogDelete = 0 ORDER BY blogView DESC LIMIT 4";
+    $sql = "SELECT * FROM uBlog WHERE uBlogDelete = 0 ORDER BY uBlogView DESC LIMIT 4";
     $result = $connect -> query($sql);
 ?>
 
-<?php foreach($result as $blog){ ?>
+<?php foreach($result as $uBlog){ ?>
     <div class="card">
         <figure class="card__img">
-                <a href="../blog/blogView.php?blogID=<?= $blog['blogID']?>&category=<?= $blog['blogCategory']?>">
-                <img src="../assets/blog/<?= $blog['blogImgFile'] ?>" alt="<?= $blog['blogTitle'] ?>">
+                <a href="../blog/blogView.php?uBlogID=<?= $uBlog['uBlogID']?>&category=<?= $uBlog['uBlogCategory']?>">
+                <img src="../assets/blog/<?= $uBlog['uBlogImgFile'] ?>" alt="<?= $uBlog['uBlogTitle'] ?>">
             </a>
         </figure>
         <div class="card__title">
-            <h3><?= $blog['blogTitle'] ?></h3>
-            <p><?= htmlspecialchars_decode($blog['blogContents']) ?></p>
+            <h3><?= $uBlog['uBlogTitle'] ?></h3>
+            <p><?= htmlspecialchars_decode($uBlog['uBlogContents']) ?></p>
         </div>                        
         <div class="card__info">
             <a href="#" class="more">더보기</a href="#">
@@ -253,89 +201,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="blog__wrap">
-                <h2>Javascript Topic</h2>
-                <div class="cards__inner col6 line2">
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog01.jpg, ../assets/img/blog01@2x.jpg 2x, ../assets/img/blog01@3x.jpg 3x" />
-                            <img src="../assets/img/blog01.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>컴퓨터 과학 기초 지식 습득</h3>
-                            <p>프로그래밍 언어를 배우기 전에 컴퓨터 과학 기초 지식을 습득하는 것이 중요합니다. 이에는 컴퓨터의 작동 원리, 알고리즘, 데이터 구조 등이 포함됩니다. 이러한 기초적인 지식을 습득하면 프로그래밍 언어를 배우는데 큰 도움이 됩니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog02.jpg, ../assets/img/blog02@2x.jpg 2x, ../assets/img/blog02@3x.jpg 3x" />
-                            <img src="../assets/img/blog02.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>프로그래밍 언어 선택</h3>
-                            <p>코딩을 배우는 가장 일반적인 방법은 프로그래밍 언어를 배우는 것입니다. 많은 프로그래밍 언어 중에서는 Python, Java, C++, JavaScript 등이 널리 사용됩니다. 이 중에서 자신이 배우고 싶은 언어를 선택하고 해당 언어의 문법과 기초 지식을 습득하는 것이 좋습니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog03.jpg, ../assets/img/blog03@2x.jpg 2x, ../assets/img/blog03@3x.jpg 3x" />
-                            <img src="../assets/img/blog03.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>온라인 자료 활용</h3>
-                            <p>온라인에는 다양한 코딩 학습 자료가 있습니다. 강의, 튜토리얼, 문제 풀이 사이트 등을 활용하여 코딩을 배울 수 있습니다. 각 언어별로 제공되는 공식 문서와 레퍼런스를 참고하여 배우는 것도 좋은 방법입니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog04.jpg, ../assets/img/blog04@2x.jpg 2x, ../assets/img/blog04@3x.jpg 3x" />
-                            <img src="../assets/img/blog04.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>코딩 연습</h3>
-                            <p>코딩을 배운 후에는 많은 연습이 필요합니다. 간단한 예제부터 시작하여 점점 어려운 문제를 해결해 나가는 것이 좋습니다. 이를 통해 코딩 스킬을 향상시킬 수 있습니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog05.jpg, ../assets/img/blog05@2x.jpg 2x, ../assets/img/blog05@3x.jpg 3x" />
-                            <img src="../assets/img/blog05.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>프로젝트 수행</h3>
-                            <p>프로그래밍 언어를 배운 후, 개인 프로젝트를 수행하는 것이 좋습니다. 이를 통해 배운 지식을 실제로 적용하고, 문제를 해결하는 경험을 쌓을 수 있습니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <figure class="card__img">
-                            <source srcset="../assets/img/blog06.jpg, ../assets/img/blog06@2x.jpg 2x, ../assets/img/blog06@3x.jpg 3x" />
-                            <img src="../assets/img/blog06.jpg" alt="소개이미지">
-                        </figure>
-                        <div class="card__title">
-                            <h3>지속적인 학습</h3>
-                            <p>코딩을 배우는 것은 끊임없는 학습과 발전이 필요합니다. 새로운 기술이나 프레임워크가 나타날 때마다 학습하고 적용해 나가는 것이 좋습니다.</p>
-                        </div>                        
-                        <div class="card__info">
-                            <a href="#" class="more">더보기</a href="#">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
         <!-- 
             <div class="intro__inner"></div> 각 페이지 소개 배너

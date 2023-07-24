@@ -5,7 +5,7 @@
         $category = $_GET['category'];
     }
 
-    $categorySql = "SELECT * FROM blog WHERE blogDelete = 0 AND blogCategory = '$category' AND blogID != '$excludeBlogID' ORDER BY blogID DESC";
+    $categorySql = "SELECT * FROM uBlog WHERE uBlogDelete = 0 AND uBlogCategory = '$category' AND uBlogID != '$excludeBlogID' ORDER BY uBlogID DESC";
     $categoryResult = $connect -> query($categorySql);
     $categoryInfo = $categoryResult -> fetch_array(MYSQLI_ASSOC);
     $categoryCount = $categoryResult -> num_rows;
@@ -15,12 +15,12 @@
 <?php foreach($categoryResult as $blog){ ?>
     <div class="card">
         <figure class="card__img">
-            <a href="blogView.php?blogID=<?= $blog['blogID']?>">
-                <img src="../assets/blog/<?= $blog['blogImgFile'] ?>" alt="<?= $blog['blogTitle'] ?>">
+            <a href="blogView.php?uBlogID=<?= $blog['uBlogID']?>">
+                <img src="../assets/blog/<?= $blog['uBlogImgFile'] ?>" alt="<?= $blog['uBlogTitle'] ?>">
             </a>
         </figure>
         <div class="card__title">
-            <h3><a href="blogView.php?blogID=<?= $blog['blogID']?>"><?= $blog['blogTitle'] ?></a></h3>
+            <h3><a href="blogView.php?uBlogID=<?= $blog['uBlogID']?>"><?= $blog['uBlogTitle'] ?></a></h3>
         </div>
     </div>
 <?php } ?>

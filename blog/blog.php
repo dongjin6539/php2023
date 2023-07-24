@@ -62,20 +62,20 @@
                         </div> -->
                     
 <?php
-    $sql = "SELECT * FROM blog WHERE blogDelete = 0 ORDER BY blogID DESC";
+    $sql = "SELECT * FROM uBlog WHERE uBlogDelete = 0 ORDER BY uBlogID DESC";
     $result = $connect -> query($sql);
 ?>
 
 <?php foreach($result as $blog){ ?>
     <div class="card">
         <figure class="card__img">
-                <a href="blogView.php?blogID=<?= $blog['blogID']?>&category=<?= $blog['blogCategory']?>">
-                <img src="../assets/blog/<?= $blog['blogImgFile'] ?>" alt="<?= $blog['blogTitle'] ?>">
+                <a href="blogView.php?uBlogID=<?= $blog['uBlogID']?>&category=<?= $blog['uBlogCategory']?>">
+                <img src="../assets/blog/<?= $blog['uBlogImgFile'] ?>" alt="<?= $blog['uBlogTitle'] ?>">
             </a>
         </figure>
         <div class="card__title">
-            <h3><?= $blog['blogTitle'] ?></h3>
-            <p><?= htmlspecialchars_decode($blog['blogContents']) ?></p>
+            <h3><?= $blog['uBlogTitle'] ?></h3>
+            <p><?= htmlspecialchars_decode($blog['uBlogContents']) ?></p>
         </div>                        
         <div class="card__info">
             <a href="#" class="more">더보기</a href="#">

@@ -43,8 +43,8 @@
                     <fieldset>
                         <legend class="blind">게시글 작성하기</legend>
                         <div>
-                            <label for="blogCategory">카테고리</label>
-                            <select name="blogCategory" id="blogCategory">
+                            <label for="uBlogCategory">카테고리</label>
+                            <select name="uBlogCategory" id="uBlogCategory">
                                 <option value="none">none</option>
                                 <option value="javascript">javascript</option>
                                 <option value="jquery">jquery</option>
@@ -55,18 +55,18 @@
                             </select>
                         </div>
                         <div>
-                            <label for="blogTitle">제목</label>
-                            <input type="text" id="blogTitle" name="blogTitle" class="inputStyle" required>
+                            <label for="uBlogTitle">제목</label>
+                            <input type="text" id="uBlogTitle" name="uBlogTitle" class="inputStyle" required>
                         </div>
                         <div>
-                            <label for="blogContents">내용</label>
-                            <textarea name="blogContents" id="blogContents" rows="20" class="inputStyle" required></textarea>
+                            <label for="uBlogContents">내용</label>
+                            <textarea name="uBlogContents" id="uBlogContents" rows="20" class="inputStyle" required></textarea>
                             <!-- <div id="editor"></div> -->
                             <!-- <textarea name="blogContents" id="editor" placeholder="내용을 입력해주세요."></textarea> -->
                         </div>
                         <div class="mt30">
-                            <label for="blogFile">파일</label>
-                            <input type="file" name="blogFile" id="blogFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg, png, gif 파일만 넣을 수 있습니다. 이미지 용량은 1MG를 넘길 수 없습니다.">
+                            <label for="uBlogFile">파일</label>
+                            <input type="file" name="uBlogFile" id="uBlogFile" accept=".jpg, .jpeg, .png, .gif" placeholder="jpg, png, gif 파일만 넣을 수 있습니다. 이미지 용량은 1MG를 넘길 수 없습니다.">
                         </div>
                         <button type="submit" class="btnStyle3">저장하기</button>
                     </fieldset>

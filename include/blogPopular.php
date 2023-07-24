@@ -2,7 +2,7 @@
     <h4>인기 글</h4>
     <ul>
         <?php
-            $blogNew = "SELECT * FROM blog WHERE blogDelete = 0 ORDER BY blogView DESC LIMIT 4";
+            $blogNew = "SELECT * FROM uBlog WHERE uBlogDelete = 0 ORDER BY uBlogView DESC LIMIT 4";
             $blogNewResult = $connect -> query($blogNew);
 
             // echo "<pre>";
@@ -11,9 +11,9 @@
 
             foreach($blogNewResult as $blog){?>
                 <li>
-                    <a href="blogView.php?blogID=<?= $blog['blogID'] ?>">
-                        <img src="../assets/blog/<?= $blog['blogImgFile'] ?>" alt="<?= $blog['blogTitle'] ?>">
-                        <span><?= $blog['blogTitle'] ?></span>
+                    <a href="blogView.php?uBlogID=<?= $blog['uBlogID'] ?>">
+                        <img src="../assets/blog/<?= $blog['uBlogImgFile'] ?>" alt="<?= $blog['uBlogTitle'] ?>">
+                        <span><?= $blog['uBlogTitle'] ?></span>
                     </a>
                 </li>
         <?php } ?>
