@@ -3,7 +3,7 @@
 
 # 사이트
 
-[https://sdj-site-react01.netlify.app/](http://dongjin6539.dothome.co.kr/php/main/main.php)
+http://dongjin6539.dothome.co.kr/php/main/main.php
 
 ## 사용 스택
 
